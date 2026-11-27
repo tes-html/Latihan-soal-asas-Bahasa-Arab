@@ -1,0 +1,2042 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBT Latihan Ujian Kelas 7 (2026/2027) - Bahasa Inggris & SBdP</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @keyframes popIn {
+            0% { transform: scale(0.96); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .animate-pop {
+            animation: popIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes floatScore {
+            0% { transform: translateY(8px); opacity: 0; }
+            20% { transform: translateY(0); opacity: 1; }
+            85% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-8px); opacity: 0; }
+        }
+        .animate-score-badge {
+            animation: floatScore 2s ease-out forwards;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800 min-h-screen flex flex-col antialiased selection:bg-indigo-200 selection:text-indigo-900">
+
+    <!-- ==================== 1. HALAMAN LOGIN ==================== -->
+    <main id="screen-login" class="flex-grow flex items-center justify-center p-4 sm:p-6">
+        <div class="w-full max-w-md bg-white rounded-2xl shadow-xl border border-slate-200/80 overflow-hidden animate-pop">
+            <div class="bg-gradient-to-br from-indigo-700 via-blue-700 to-indigo-800 p-6 sm:p-8 text-white text-center relative overflow-hidden">
+                <div class="absolute -top-10 -right-10 w-32 h-32 bg-white/10 rounded-full blur-xl"></div>
+                <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-indigo-950/30 rounded-full blur-xl"></div>
+                
+                <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-white/15 backdrop-blur-sm border border-white/25 mb-4 shadow-inner">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                    </svg>
+                </div>
+                <span class="block text-xs font-semibold uppercase tracking-widest text-indigo-200 mb-1">Computer Based Test (CBT)</span>
+                <h1 class="text-xl sm:text-2xl font-bold tracking-tight">Latihan Ujian Kelas 7</h1>
+                <p class="text-sm text-indigo-100 mt-1">Tahun Ajaran 2026/2027 • Sesuai Kisi-Kisi</p>
+            </div>
+
+            <form id="login-form" class="p-6 sm:p-8 space-y-5" novalidate>
+                <div id="login-error" class="hidden bg-rose-50 border border-rose-200 text-rose-700 px-4 py-3 rounded-xl text-sm flex items-start gap-2.5">
+                    <svg class="w-5 h-5 text-rose-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <span id="login-error-text">Mohon isi Nama Lengkap dan Kelas terlebih dahulu.</span>
+                </div>
+
+                <div>
+                    <label for="student-name" class="block text-sm font-semibold text-slate-700 mb-1.5">Nama Lengkap Siswa</label>
+                    <input type="text" id="student-name" placeholder="Contoh: Raka Pratama" autocomplete="off"
+                        class="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 focus:bg-white transition text-sm sm:text-base">
+                </div>
+
+                <div>
+                    <label for="student-class" class="block text-sm font-semibold text-slate-700 mb-1.5">Kelas</label>
+                    <input type="text" id="student-class" placeholder="Contoh: 7A, 7B, 7C" autocomplete="off"
+                        class="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 focus:bg-white transition text-sm sm:text-base uppercase">
+                </div>
+
+                <button type="submit"
+                    class="w-full py-3.5 px-5 bg-indigo-600 hover:bg-indigo-700 active:scale-[0.99] text-white font-semibold rounded-xl shadow-md shadow-indigo-600/20 transition flex items-center justify-center gap-2 text-base cursor-pointer">
+                    <span>Masuk & Pilih Materi Ujian</span>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <!-- ==================== 2. HALAMAN PILIH MATERI (SUBJECT MENU) ==================== -->
+    <section id="screen-subject" class="hidden flex-grow flex items-center justify-center p-4 sm:p-6">
+        <div class="w-full max-w-2xl bg-white rounded-2xl shadow-xl border border-slate-200/80 overflow-hidden animate-pop">
+            <div class="bg-slate-900 p-6 sm:p-8 text-white flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div>
+                    <span class="text-xs font-semibold uppercase tracking-wider text-indigo-400">Selamat Datang Peserta Ujian</span>
+                    <h2 id="menu-student-name" class="text-xl sm:text-2xl font-bold mt-0.5">Nama Siswa</h2>
+                    <p class="text-sm text-slate-300">Kelas <span id="menu-student-class" class="font-semibold text-white">7A</span> • Tahun Ajaran 2026/2027</p>
+                </div>
+                <button id="btn-back-login" type="button" class="self-start sm:self-center text-xs font-semibold px-3.5 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-slate-200 transition cursor-pointer">
+                    Ganti Nama / Kelas
+                </button>
+            </div>
+
+            <div class="p-6 sm:p-8">
+                <h3 class="text-base sm:text-lg font-bold text-slate-800 mb-1">Pilih Mata Pelajaran Latihan Ujian</h3>
+                <p class="text-xs sm:text-sm text-slate-500 mb-6">Setiap paket ujian terdiri dari <strong>40 soal</strong> (20 PG, 15 PG Kompleks, dan 5 Menjodohkan tarik garis) sesuai kisi-kisi.</p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <!-- Kartu Bahasa Inggris -->
+                    <button type="button" onclick="selectSubject('english')"
+                        class="group text-left p-5 rounded-2xl border-2 border-slate-200 hover:border-blue-600 bg-white hover:bg-blue-50/40 transition-all duration-200 shadow-sm hover:shadow-md flex flex-col justify-between cursor-pointer">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-700 group-hover:bg-blue-600 group-hover:text-white flex items-center justify-center mb-4 transition">
+                                <span class="font-extrabold text-lg">EN</span>
+                            </div>
+                            <span class="inline-block text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-blue-100 text-blue-800 mb-2">40 Soal Kisi-Kisi</span>
+                            <h4 class="text-lg font-bold text-slate-800 group-hover:text-blue-800">Bahasa Inggris</h4>
+                            <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">Greeting & Parting, Introduction, Hobbies, People's Description, Favorite Meals, Food, Recipe, Command/Prohibition, Simple Present.</p>
+                        </div>
+                        <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-blue-700">
+                            <span>Mulai Ujian B. Inggris</span>
+                            <span>&rarr;</span>
+                        </div>
+                    </button>
+
+                    <!-- Kartu Seni Budaya (SBdP) -->
+                    <button type="button" onclick="selectSubject('sbdp')"
+                        class="group text-left p-5 rounded-2xl border-2 border-slate-200 hover:border-emerald-600 bg-white hover:bg-emerald-50/40 transition-all duration-200 shadow-sm hover:shadow-md flex flex-col justify-between cursor-pointer">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 group-hover:bg-emerald-600 group-hover:text-white flex items-center justify-center mb-4 transition">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
+                                </svg>
+                            </div>
+                            <span class="inline-block text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 mb-2">40 Soal Kisi-Kisi</span>
+                            <h4 class="text-lg font-bold text-slate-800 group-hover:text-emerald-800">Seni Budaya (SBdP)</h4>
+                            <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">Unsur & Prinsip Seni Rupa, Teori Warna, Alat & Bahan, Teknik Menggambar, Tahapan Menggambar, Motif & Teknik Ragam Hias.</p>
+                        </div>
+                        <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-emerald-700">
+                            <span>Mulai Ujian SBdP</span>
+                            <span>&rarr;</span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 3. HALAMAN UJIAN (EXAM) ==================== -->
+    <div id="screen-exam" class="hidden flex-grow flex flex-col">
+        <!-- Header CBT Sticky -->
+        <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-sm">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-3">
+                <div class="flex items-center gap-3 min-w-0">
+                    <div id="header-avatar" class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 font-bold flex items-center justify-center shrink-0 text-sm">
+                        RP
+                    </div>
+                    <div class="min-w-0">
+                        <p id="header-name" class="text-sm font-bold text-slate-800 truncate">Nama Siswa</p>
+                        <p class="text-xs text-slate-500">Kelas <span id="header-class" class="font-semibold text-slate-700">7A</span> • <span id="header-subject-label" class="font-bold text-indigo-600">Bahasa Inggris</span></p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-2.5 sm:gap-3 ml-auto">
+                    <button type="button" onclick="confirmQuitExam()" class="text-xs font-semibold text-slate-500 hover:text-rose-600 px-2.5 py-1.5 rounded-lg border border-slate-200 hover:border-rose-200 transition cursor-pointer">
+                        Menu Mapel
+                    </button>
+                    <div class="bg-slate-100 border border-slate-200 px-3 py-1.5 rounded-xl text-xs sm:text-sm font-semibold text-slate-700">
+                        Soal <span id="header-q-num" class="text-indigo-700 font-bold">1</span> <span class="text-slate-400 font-normal">/</span> <span id="header-q-total">40</span>
+                    </div>
+                    <div class="relative bg-emerald-50 border border-emerald-200 px-3.5 py-1.5 rounded-xl flex items-center gap-1.5">
+                        <span class="text-xs text-emerald-800 font-medium hidden sm:inline">Skor:</span>
+                        <span id="header-score" class="text-sm sm:text-base font-extrabold text-emerald-700">0</span>
+                        <div id="score-popup-container" class="absolute -bottom-8 right-0 pointer-events-none"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full bg-slate-100 h-1.5">
+                <div id="exam-progress-bar" class="bg-indigo-600 h-1.5 transition-all duration-300 ease-out" style="width: 2.5%"></div>
+            </div>
+        </header>
+
+        <!-- Konten Utama Soal -->
+        <div class="flex-grow max-w-3xl w-full mx-auto px-4 sm:px-6 py-6 sm:py-8">
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200/90 p-5 sm:p-8">
+                <!-- Tag Indikator Kisi-kisi & Tipe Soal -->
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+                    <span id="question-topic" class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700 border border-slate-200">
+                        Materi Pokok
+                    </span>
+                    <span id="question-type-badge" class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-bold bg-indigo-50 text-indigo-800 border border-indigo-200">
+                        Pilihan Ganda
+                    </span>
+                </div>
+
+                <!-- Teks Pertanyaan -->
+                <div id="question-container" class="mb-6"></div>
+
+                <!-- Opsi Jawaban (PG, PGK dengan limit maksimal, atau Menjodohkan tarik garis) -->
+                <div id="options-container" class="space-y-3"></div>
+
+                <!-- Tombol Konfirmasi Khusus PGK & Menjodohkan -->
+                <div id="submit-answer-container" class="hidden mt-5">
+                    <button id="btn-confirm" type="button"
+                        class="w-full py-3.5 bg-indigo-600 hover:bg-indigo-700 active:scale-[0.99] text-white font-semibold rounded-xl shadow-md transition cursor-pointer flex items-center justify-center gap-2">
+                        <span>Periksa & Kunci Jawaban</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Kotak Instant Feedback & Penjelasan Ringkas -->
+                <div id="feedback-box" class="hidden mt-6 rounded-2xl border p-4 sm:p-5 animate-pop">
+                    <div class="flex items-center justify-between gap-2 mb-2">
+                        <div id="feedback-status" class="flex items-center gap-2 font-bold text-sm sm:text-base"></div>
+                        <span id="feedback-points" class="text-xs font-extrabold px-2.5 py-1 rounded-lg">+2.5 Poin</span>
+                    </div>
+                    <div class="border-t border-current/10 pt-2.5 mt-2">
+                        <p class="text-xs font-bold uppercase tracking-wider opacity-75 mb-1">Penjelasan Ringkas:</p>
+                        <div id="feedback-explanation" class="text-sm leading-relaxed"></div>
+                    </div>
+                </div>
+
+                <!-- Tombol Selanjutnya -->
+                <div id="next-action-container" class="hidden mt-6 pt-4 border-t border-slate-100 flex justify-end">
+                    <button id="btn-next" type="button"
+                        class="w-full sm:w-auto px-6 py-3 bg-indigo-600 hover:bg-indigo-700 active:scale-[0.99] text-white font-semibold rounded-xl shadow-sm transition flex items-center justify-center gap-2 cursor-pointer">
+                        <span id="btn-next-text">Soal Selanjutnya</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== 4. HALAMAN HASIL AKHIR ==================== -->
+    <div id="screen-result" class="hidden flex-grow py-6 sm:py-10 px-4 sm:px-6">
+        <div class="max-w-3xl mx-auto space-y-6">
+            <div class="bg-white rounded-2xl shadow-md border border-slate-200 overflow-hidden animate-pop">
+                <div class="bg-gradient-to-r from-indigo-700 to-blue-700 px-6 py-6 sm:px-8 sm:py-8 text-white text-center">
+                    <p class="text-xs uppercase tracking-widest text-indigo-200 font-semibold mb-1">Hasil Latihan Ujian • <span id="result-subject-name">Bahasa Inggris</span></p>
+                    <h2 id="result-predicate-title" class="text-2xl sm:text-3xl font-extrabold text-white mb-1">Sangat Memuaskan!</h2>
+                    <p id="result-predicate-sub" class="text-sm text-indigo-100">Nilai Akhir Kelas 7 (2026/2027)</p>
+                </div>
+
+                <div class="p-6 sm:p-8">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-5 border-b border-slate-100">
+                        <div>
+                            <p class="text-xs text-slate-400 uppercase font-semibold">Peserta Ujian</p>
+                            <p id="result-student-name" class="text-base sm:text-lg font-bold text-slate-800">Nama Siswa</p>
+                        </div>
+                        <div class="sm:text-right">
+                            <p class="text-xs text-slate-400 uppercase font-semibold">Kelas</p>
+                            <span id="result-student-class" class="inline-block bg-slate-100 text-slate-800 font-bold px-3 py-1 rounded-lg text-sm">7A</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-3 sm:gap-4 my-6">
+                        <div class="bg-indigo-50 border border-indigo-200/80 rounded-2xl p-4 text-center">
+                            <p class="text-xs font-semibold text-indigo-700 mb-1">Nilai Akhir</p>
+                            <p id="result-score" class="text-3xl sm:text-4xl font-extrabold text-indigo-700">100</p>
+                            <p class="text-[11px] text-indigo-600/80 mt-0.5">Skala 100</p>
+                        </div>
+                        <div class="bg-emerald-50/70 border border-emerald-200/70 rounded-2xl p-4 text-center">
+                            <p class="text-xs font-semibold text-emerald-700 mb-1">Benar</p>
+                            <p id="result-correct" class="text-2xl sm:text-3xl font-extrabold text-emerald-700">40</p>
+                            <p class="text-[11px] text-emerald-600/80 mt-0.5">Soal</p>
+                        </div>
+                        <div class="bg-rose-50/70 border border-rose-200/70 rounded-2xl p-4 text-center">
+                            <p class="text-xs font-semibold text-rose-700 mb-1">Kurang Tepat</p>
+                            <p id="result-wrong" class="text-2xl sm:text-3xl font-extrabold text-rose-700">0</p>
+                            <p class="text-[11px] text-rose-600/80 mt-0.5">Soal</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50 border border-slate-200/80 rounded-xl p-4 text-center text-sm text-slate-700 mb-6">
+                        <p id="result-motivation">Luar biasa! Pemahamanmu terhadap materi kisi-kisi sudah sangat matang.</p>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <button id="btn-retry" type="button"
+                            class="flex-1 py-3 px-5 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl shadow-sm transition flex items-center justify-center gap-2 cursor-pointer">
+                            <span>Ulangi Mapel Ini</span>
+                        </button>
+                        <button id="btn-change-subject" type="button"
+                            class="flex-1 py-3 px-5 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-xl shadow-sm transition flex items-center justify-center gap-2 cursor-pointer">
+                            <span>Pilih Materi Lain</span>
+                        </button>
+                        <button id="btn-logout" type="button"
+                            class="py-3 px-5 bg-white hover:bg-slate-50 text-slate-700 border border-slate-300 font-semibold rounded-xl transition flex items-center justify-center gap-2 cursor-pointer">
+                            <span>Keluar</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Review 40 Soal -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8">
+                <div class="flex items-center justify-between mb-5">
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-800">Pembahasan & Review Jawaban</h3>
+                        <p class="text-xs text-slate-500">Pelajari kembali penjelasan ringkas dari 40 soal di bawah ini</p>
+                    </div>
+                    <span class="text-xs font-semibold bg-slate-100 text-slate-600 px-3 py-1 rounded-full">40 Soal</span>
+                </div>
+                <div id="review-list" class="space-y-4"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Konfirmasi Kembali ke Menu Mapel (Pengganti confirm()) -->
+    <div id="quit-modal" class="hidden fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-xs flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-sm w-full p-6 shadow-2xl animate-pop">
+            <h4 class="text-lg font-bold text-slate-800 mb-2">Kembali ke Menu Materi?</h4>
+            <p class="text-sm text-slate-600 mb-5">Progres ujian pada mata pelajaran ini akan direset jika Anda kembali ke menu pemilihan materi.</p>
+            <div class="flex gap-3 justify-end">
+                <button type="button" onclick="closeQuitModal()" class="px-4 py-2 rounded-xl border border-slate-300 text-sm font-semibold text-slate-700 hover:bg-slate-50 cursor-pointer">Lanjut Ujian</button>
+                <button type="button" onclick="executeQuitToMenu()" class="px-4 py-2 rounded-xl bg-rose-600 text-white text-sm font-semibold hover:bg-rose-700 cursor-pointer">Ya, Kembali</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="py-4 text-center text-xs text-slate-400">
+        CBT Latihan Ujian Kelas 7 Tahun 2026/2027 • Bahasa Inggris & Seni Budaya (SBdP)
+    </footer>
+
+    <!-- ==================== DATABASE SOAL (100% SESUAI KISI-KISI) ==================== -->
+    <script>
+        /**
+         * BANK SOAL BAHASA INGGRIS (40 SOAL - 100% SESUAI GAMBAR KISI-KISI)
+         * - PG: 1 - 20
+         * - PGK: 21 - 35 (Nomor PGK 1 - 15)
+         * - Menjodohkan: 36 - 40 (Nomor Menjodohkan 1 - 5)
+         */
+        const ENGLISH_QUESTIONS = [
+            // --- PG 1-2: Greeting and parting ---
+            {
+                id: 1, type: 'pg', topic: "PG 1 • Greeting and Parting",
+                questionHtml: `
+                    <p class="text-sm sm:text-base text-slate-700 mb-2">Complete the following dialogue with the correct greeting response:</p>
+                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-1.5 text-sm sm:text-base">
+                        <p><strong>Rina:</strong> "Good morning, Mr. Budi. How are you doing today?"</p>
+                        <p><strong>Mr. Budi:</strong> "Good morning, Rina. ...................., thank you."</p>
+                    </div>
+                `,
+                options: ["I am very well", "Nice to meet you", "See you tomorrow", "Good night"],
+                correctIndex: 0,
+                explanation: `Pertanyaan <em>"How are you doing?"</em> menanyakan kabar, sehingga respon sapaan yang tepat adalah <strong>"I am very well"</strong> (Saya sangat baik).`
+            },
+            {
+                id: 2, type: 'pg', topic: "PG 2 • Greeting and Parting",
+                questionHtml: `
+                    <p class="text-sm sm:text-base text-slate-700 mb-2">Complete the dialogue with the appropriate parting expression:</p>
+                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-1.5 text-sm sm:text-base">
+                        <p><strong>Dito:</strong> "It's already 4 PM. I have to go home now. ...................."</p>
+                        <p><strong>Siti:</strong> "Goodbye, Dito. Take care on your way home!"</p>
+                    </div>
+                `,
+                options: ["How do you do?", "See you later!", "Good morning!", "Welcome back!"],
+                correctIndex: 1,
+                explanation: `Karena Dito hendak pulang dan Siti membalas <em>"Goodbye"</em>, ungkapan berpamitan yang tepat adalah <strong>"See you later!"</strong> (Sampai jumpa nanti).`
+            },
+            // --- PG 3-4: Introduction ---
+            {
+                id: 3, type: 'pg', topic: "PG 3 • Introduction",
+                questionHtml: `
+                    <p class="text-sm sm:text-base text-slate-700 mb-2">Complete the self-introduction dialogue below:</p>
+                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-1.5 text-sm sm:text-base">
+                        <p><strong>Maya:</strong> "Hello, everyone. Let me .................... myself. My name is Maya, and I am from Bandung."</p>
+                    </div>
+                `,
+                options: ["introduce", "introducing", "introduced", "introduction"],
+                correctIndex: 0,
+                explanation: `Setelah kata <em>"Let me..."</em> harus diikuti kata kerja dasar (Verb 1), yaitu <strong>introduce</strong> (Izinkan saya memperkenalkan diri).`
+            },
+            {
+                id: 4, type: 'pg', topic: "PG 4 • Introduction",
+                questionHtml: `
+                    <p class="text-sm sm:text-base text-slate-700 mb-2">Read the dialogue about introducing another person:</p>
+                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-1.5 text-sm sm:text-base">
+                        <p><strong>Andi:</strong> "Bima, .................... my cousin, Clara. She just moved from Surabaya."</p>
+                        <p><strong>Bima:</strong> "Hi, Clara! Glad to meet you."</p>
+                    </div>
+                `,
+                options: ["this is", "these are", "those are", "she are"],
+                correctIndex: 0,
+                explanation: `Untuk memperkenalkan satu orang lain secara langsung di dekat kita, digunakan ungkapan <strong>"this is"</strong>.`
+            },
+            // --- PG 5-8: Hobbies ---
+            {
+                id: 5, type: 'pg', topic: "PG 5 • Hobbies",
+                questionHtml: `
+                    <p class="text-sm sm:text-base text-slate-700 mb-2">Complete the dialogue about hobbies:</p>
+                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-1.5 text-sm sm:text-base">
+                        <p><strong>Lina:</strong> "What do you usually do in your free time?"</p>
+                        <p><strong>Edo:</strong> "I love nature. My hobby is .................... in the mountains."</p>
+                    </div>
+                `,
+                options: ["hiking", "swimming", "cooking", "painting"],
+                correctIndex: 0,
+                explanation: `Petunjuk <em>"I love nature"</em> dan <em>"in the mountains"</em> (di pegunungan) merujuk pada hobi mendaki yaitu <strong>hiking</strong>.`
+            },
+            {
+                id: 6, type: 'pg', topic: "PG 6 • Hobbies (Topic)",
+                questionHtml: `
+                    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-4 text-sm sm:text-base mb-3 leading-relaxed">
+                        "Nadia spends every afternoon in her mini studio. She buys canvases, brushes, and watercolor paints. She loves drawing landscapes and portraits of her family."
+                    </div>
+                    <p class="text-sm sm:text-base font-medium text-slate-800">What is the topic of the text above?</p>
+                `,
+                options: ["Nadia's favorite food", "Nadia's painting hobby", "Nadia's school subjects", "Nadia's family members"],
+                correctIndex: 1,
+                explanation: `Teks menceritakan Nadia menggunakan kanvas, kuas, dan cat air untuk melukis, sehingga topiknya adalah <strong>Nadia's painting hobby</strong>.`
+            },
+            {
+                id: 7, type: 'pg', topic: "PG 7 • Hobbies (Detailed Info)",
+                questionHtml: `
+                    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-4 text-sm sm:text-base mb-3 leading-relaxed">
+                        "Rizky loves playing badminton. He practices at the sport hall every Wednesday and Saturday with his older brother. His dream is to become a national athlete."
+                    </div>
+                    <p class="text-sm sm:text-base font-medium text-slate-800">When does Rizky practice badminton?</p>
+                `,
+                options: ["Every Monday and Friday", "Every Wednesday and Saturday", "Every Sunday morning", "Every Tuesday and Thursday"],
+                correctIndex: 1,
+                explanation: `Berdasarkan informasi rinci pada kalimat kedua, Rizky berlatih setiap hari Rabu dan Sabtu (<strong>Every Wednesday and Saturday</strong>).`
+            },
+            {
+                id: 8, type: 'pg', topic: "PG 8 • Hobbies (Jumbled Words)",
+                questionHtml: `
+                    <p class="text-sm sm:text-base text-slate-700 mb-2">Arrange the jumbled words below into a meaningful sentence:</p>
+                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-3 text-center font-semibold text-indigo-800">
+                        reading (1) – in (2) – likes (3) – novels (4) – Sarah (5) – library (6) – the (7)
+                    </div>
+                `,
+                options: ["5 - 3 - 1 - 4 - 2 - 7 - 6", "5 - 1 - 3 - 4 - 2 - 6 - 7", "1 - 4 - 3 - 5 - 2 - 7 - 6", "5 - 3 - 4 - 1 - 7 - 2 - 6"],
+                correctIndex: 0,
+                explanation: `Susunan kalimat yang benar adalah: <em>Sarah (5) likes (3) reading (1) novels (4) in (2) the (7) library (6).</em>`
+            },
+            // --- PG 9-12: People's Description ---
+            {
+                id: 9, type: 'pg', topic: "PG 9 • People's Description (Topic)",
+                questionHtml: `
+                    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-4 text-sm sm:text-base mb-3 leading-relaxed">
+                        "Mr. Hendra is our new English teacher. He is tall and slim. He has short black hair and wears rectangular glasses. He is very patient and always smiles at his students."
+                    </div>
+                    <p class="text-sm sm:text-base font-medium text-slate-800">What is the main topic of the descriptive text?</p>
+                `,
+                options: ["The description of Mr. Hendra", "The school library rules", "Mr. Hendra's favorite meal", "How to study English well"],
+                correctIndex: 0,
+                explanation: `Seluruh kalimat mendeskripsikan ciri fisik dan sifat Pak Hendra, jadi topiknya adalah <strong>The description of Mr. Hendra</strong>.`
+            },
+            {
+                id: 10, type: 'pg', topic: "PG 10 • People's Description (Detail)",
+                questionHtml: `
+                    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-4 text-sm sm:text-base mb-3 leading-relaxed">
+                        "Alya is my best friend. She has a round face, bright eyes, and long wavy hair. She is quite short compared to other girls in our class, but she is very agile."
+                    </div>
+                    <p class="text-sm sm:text-base font-medium text-slate-800">What does Alya's hair look like?</p>
+                `,
+                options: ["Short and straight", "Long and wavy", "Curly and blonde", "Short and spiky"],
+                correctIndex: 1,
+                explanation: `Pada teks disebutkan secara rinci bahwa Alya memiliki rambut panjang bergelombang (<strong>Long and wavy</strong>).`
+            },
+            {
+                id: 11, type: 'pg', topic: "PG 11 • People's Description (Main Idea)",
+                questionHtml: `
+                    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-4 text-sm sm:text-base mb-3 leading-relaxed">
+                        "Besides being handsome, Kevin is a very helpful boy. He always helps his classmates carry heavy books and explains difficult math homework willingly."
+                    </div>
+                    <p class="text-sm sm:text-base font-medium text-slate-800">What is the main idea of the paragraph above?</p>
+                `,
+                options: ["Kevin is good at sports", "Kevin is a helpful student", "Kevin dislikes math homework", "Kevin has many heavy books"],
+                correctIndex: 1,
+                explanation: `Ide utama paragraf terdapat di kalimat pertama: Kevin adalah anak yang suka menolong (<strong>Kevin is a helpful student</strong>).`
+            },
+            {
+                id: 12, type: 'pg', topic: "PG 12 • People's Description (Paraphrase)",
+                questionHtml: `
+                    <p class="text-sm sm:text-base text-slate-700 mb-2">Based on the previous text ("Kevin explains difficult math homework willingly"), complete the paraphrased sentence:</p>
+                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 text-sm sm:text-base">
+                        "Kevin is .................... to assist his friends who have trouble with math."
+                    </div>
+                `,
+                options: ["lazy", "eager", "angry", "afraid"],
+                correctIndex: 1,
+                explanation: `Kata <em>willingly</em> (dengan senang hati/antusias) memiliki makna yang sejalan dengan <strong>eager</strong> (bersemangat/mau membantu).`
+            },
+            // --- PG 13-15: Favorite Meals ---
+            {
+                id: 13, type: 'pg', topic: "PG 13 • Favorite Meals (Purpose)",
+                questionHtml: `
+                    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-4 text-sm sm:text-base mb-3 leading-relaxed">
+                        "My favorite meal is Soto Ayam. It is a traditional Indonesian yellow chicken soup. It contains shredded chicken, glass noodles, boiled egg, and fresh celery."
+                    </div>
+                    <p class="text-sm sm:text-base font-medium text-slate-800">What is the purpose of writing the text above?</p>
+                `,
+                options: ["To describe the writer's favorite meal", "To tell how to cook chicken soup", "To advertise a new restaurant", "To warn people about spicy food"],
+                correctIndex: 0,
+                explanation: `Teks berbentuk <em>Descriptive Text</em> yang bertujuan mendeskripsikan makanan favorit penulis (<strong>To describe the writer's favorite meal</strong>).`
+            },
+            {
+                id: 14, type: 'pg', topic: "PG 14 • Favorite Meals (Detail)",
+                questionHtml: `
+                    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-4 text-sm sm:text-base mb-3 leading-relaxed">
+                        "For breakfast, Tari always loves eating homemade pancakes topped with sweet honey and fresh sliced strawberries. She drinks a glass of warm milk with it."
+                    </div>
+                    <p class="text-sm sm:text-base font-medium text-slate-800">What toppings does Tari put on her pancakes?</p>
+                `,
+                options: ["Chocolate and cheese", "Honey and sliced strawberries", "Peanut butter and banana", "Ice cream and blueberries"],
+                correctIndex: 1,
+                explanation: `Disebutkan secara rinci bahwa pancake-nya diberi topping madu manis dan irisan stroberi segar (<strong>Honey and sliced strawberries</strong>).`
+            },
+            {
+                id: 15, type: 'pg', topic: "PG 15 • Favorite Meals (Synonym)",
+                questionHtml: `
+                    <p class="text-sm sm:text-base text-slate-700 mb-2">Look at the sentence: <em>"Soto Ayam is a <strong>delicious</strong> traditional soup."</em></p>
+                    <p class="text-sm sm:text-base font-medium text-slate-800">The underlined word <strong>delicious</strong> has the closest meaning to ....</p>
+                `,
+                options: ["bitter", "tasty", "salty", "sour"],
+                correctIndex: 1,
+                explanation: `Persamaan kata (sinonim) dari <em>delicious</em> (lezat) adalah <strong>tasty</strong> (enak/lezat).`
+            },
+            // --- PG 16-17: Food ---
+            {
+                id: 16, type: 'pg', topic: "PG 16 • Food (Texture)",
+                questionHtml: `
+                    <p class="text-sm sm:text-base text-slate-700 mb-2">Complete the dialogue about food texture:</p>
+                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-1.5 text-sm sm:text-base">
+                        <p><strong>Fajar:</strong> "How do you like the fried cassava (singkong goreng)?"</p>
+                        <p><strong>Gita:</strong> "It's awesome! It is very .................... on the outside, yet soft on the inside."</p>
+                    </div>
+                `,
+                options: ["crispy", "watery", "sour", "chewy"],
+                correctIndex: 0,
+                explanation: `Tekstur gorengan yang renyah di bagian luar dan lembut di dalam disebut <strong>crispy</strong> (renyah/garing).`
+            },
+            {
+                id: 17, type: 'pg', topic: "PG 17 • Food (Information)",
+                questionHtml: `
+                    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-4 text-sm sm:text-base mb-3 leading-relaxed">
+                        "Gado-gado is a healthy Indonesian salad. It consists of steamed vegetables, tofu, tempeh, and boiled potatoes mixed with rich peanut sauce."
+                    </div>
+                    <p class="text-sm sm:text-base font-medium text-slate-800">What sauce is used in Gado-gado?</p>
+                `,
+                options: ["Tomato sauce", "Soy sauce", "Peanut sauce", "Chili oil"],
+                correctIndex: 2,
+                explanation: `Gado-gado menggunakan saus kacang yang gurih (<strong>Peanut sauce</strong>).`
+            },
+            // --- PG 18-20: Recipe ---
+            {
+                id: 18, type: 'pg', topic: "PG 18 • Recipe (Benefit)",
+                questionHtml: `
+                    <div class="bg-amber-50/80 border border-amber-200 rounded-xl p-4 text-sm sm:text-base mb-3 leading-relaxed">
+                        <strong>How to Make Iced Lemon Tea</strong><br>
+                        1. Brew a tea bag in a cup of hot water.<br>
+                        2. Add two teaspoons of sugar and stir well.<br>
+                        3. Squeeze half a fresh lemon into the tea.<br>
+                        4. Add ice cubes and serve cold.
+                    </div>
+                    <p class="text-sm sm:text-base font-medium text-slate-800">What is the benefit of reading the recipe text above?</p>
+                `,
+                options: ["Readers know how to make iced lemon tea properly", "Readers know the history of tea plantations", "Readers can buy cheap lemons at the market", "Readers learn how to grow lemon trees"],
+                correctIndex: 0,
+                explanation: `Manfaat membaca teks prosedur resep adalah mengetahui cara membuat minuman/makanan dengan langkah yang benar (<strong>Readers know how to make iced lemon tea properly</strong>).`
+            },
+            {
+                id: 19, type: 'pg', topic: "PG 19 • Recipe (Detailed Step)",
+                questionHtml: `
+                    <p class="text-sm sm:text-base text-slate-700 mb-2">Based on the <em>"How to Make Iced Lemon Tea"</em> recipe above, what should you do right after adding two teaspoons of sugar?</p>
+                `,
+                options: ["Brew a tea bag", "Stir the tea well", "Add ice cubes immediately", "Boil the lemon"],
+                correctIndex: 1,
+                explanation: `Pada langkah ke-2 tertulis: <em>"Add two teaspoons of sugar and <strong>stir well</strong>"</em> (aduk hingga merata).`
+            },
+            {
+                id: 20, type: 'pg', topic: "PG 20 • Recipe (Conclusion)",
+                questionHtml: `
+                    <p class="text-sm sm:text-base text-slate-700 mb-2">From the <em>"How to Make Iced Lemon Tea"</em> recipe, we can conclude that ....</p>
+                `,
+                options: ["The drink is best served cold with ice cubes", "We need milk and coffee powder to make it", "It takes more than three hours to prepare", "We do not need water in the process"],
+                correctIndex: 0,
+                explanation: `Kesimpulan dari langkah terakhir (<em>"Add ice cubes and serve cold"</em>) adalah minuman ini disajikan dingin dengan es batu.`
+            },
+
+            // ==================== PGK BAHASA INGGRIS (NO 1 - 15 -> INDEX 21 - 35) ====================
+            {
+                id: 21, type: 'complex', maxSelect: 2, topic: "PGK 1 • Greeting & Parting (to be)",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800 mb-2">Complete the dialogue with the correct <strong>to be (am / is / are)</strong>. Choose <strong>2 correct options</strong> that fit the blanks:</p>
+                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 text-sm sm:text-base">
+                        "Hello! How <strong>(1).......</strong> you today? I <strong>(2).......</strong> glad to see you again."
+                    </div>
+                `,
+                options: [
+                    { text: "(1) are", isCorrect: true },
+                    { text: "(2) am", isCorrect: true },
+                    { text: "(1) is", isCorrect: false },
+                    { text: "(2) are", isCorrect: false }
+                ],
+                explanation: `Subjek <em>you</em> berpasangan dengan <strong>are</strong> (<em>How are you?</em>), sedangkan subjek <em>I</em> berpasangan dengan <strong>am</strong> (<em>I am glad</em>).`
+            },
+            {
+                id: 22, type: 'complex', maxSelect: 2, topic: "PGK 2 • Parting Response (to be)",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800 mb-2">Which <strong>2 parting responses</strong> use the correct form of <strong>to be</strong>?</p>
+                `,
+                options: [
+                    { text: "Goodbye! It is time for me to go now.", isCorrect: true },
+                    { text: "See you! My parents are waiting outside.", isCorrect: true },
+                    { text: "Bye! She are going home early.", isCorrect: false },
+                    { text: "Good night! I is very sleepy.", isCorrect: false }
+                ],
+                explanation: `<em>It</em> memakai <strong>is</strong> dan <em>My parents</em> (jamak) memakai <strong>are</strong>.`
+            },
+            {
+                id: 23, type: 'complex', maxSelect: 2, topic: "PGK 3 • Greeting Expressions",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800 mb-2">Look at the dialogue: <em>"Good afternoon, class! ...................."</em> Choose <strong>2 appropriate greeting expressions</strong> to continue the teacher's greeting:</p>
+                `,
+                options: [
+                    { text: "How are you all today?", isCorrect: true },
+                    { text: "It's great to see you!", isCorrect: true },
+                    { text: "See you next week!", isCorrect: false },
+                    { text: "Have a nice dream!", isCorrect: false }
+                ],
+                explanation: `<em>How are you all today?</em> dan <em>It's great to see you!</em> adalah ungkapan sapaan (greeting), sedangkan dua lainnya adalah perpisahan (parting).`
+            },
+            {
+                id: 24, type: 'complex', maxSelect: 2, topic: "PGK 4 • Food & Recipe Steps",
+                questionHtml: `
+                    <div class="bg-amber-50/80 border border-amber-200 rounded-xl p-3.5 text-sm mb-2">
+                        <strong>Making Fried Egg:</strong> Heat a little oil in a frying pan. Crack an egg into the pan. Sprinkle a pinch of salt. Flip it gently and cook until done.
+                    </div>
+                    <p class="text-sm sm:text-base font-medium text-slate-800">Select <strong>2 correct steps</strong> mentioned in the recipe above:</p>
+                `,
+                options: [
+                    { text: "Sprinkle a pinch of salt on the egg", isCorrect: true },
+                    { text: "Heat a little oil in a frying pan", isCorrect: true },
+                    { text: "Boil the egg in hot water for 10 minutes", isCorrect: false },
+                    { text: "Add two spoons of sugar", isCorrect: false }
+                ],
+                explanation: `Langkah yang sesuai teks adalah memanaskan minyak di wajan (<em>Heat a little oil</em>) dan menaburkan sejumput garam (<em>Sprinkle a pinch of salt</em>).`
+            },
+            {
+                id: 25, type: 'complex', maxSelect: 2, topic: "PGK 5 • Simple Present (a / an)",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800 mb-2">Choose <strong>2 sentences</strong> that use the articles <strong>"a"</strong> and <strong>"an"</strong> correctly in daily activities:</p>
+                `,
+                options: [
+                    { text: "Every morning, I eat an apple and a slice of bread.", isCorrect: true },
+                    { text: "She brings an umbrella and a notebook to school.", isCorrect: true },
+                    { text: "He eats a orange after lunch.", isCorrect: false },
+                    { text: "They buy an new bicycle.", isCorrect: false }
+                ],
+                explanation: `Artikel <strong>an</strong> digunakan sebelum bunyi vokal (<em>an apple, an umbrella</em>), sedangkan <strong>a</strong> sebelum bunyi konsonan (<em>a slice, a notebook</em>).`
+            },
+            {
+                id: 26, type: 'complex', maxSelect: 2, topic: "PGK 6 • Physical Appearance (Face & Hair)",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800 mb-2">Complete the text: <em>"My sister is very pretty. She has ...................."</em> Choose <strong>2 correct physical descriptions</strong>:</p>
+                `,
+                options: [
+                    { text: "an oval face and pointed nose", isCorrect: true },
+                    { text: "long straight black hair", isCorrect: true },
+                    { text: "delicious spicy peanut sauce", isCorrect: false },
+                    { text: "two teaspoons of white sugar", isCorrect: false }
+                ],
+                explanation: `Ciri fisik seseorang meliputi bentuk wajah/hidung (<em>oval face and pointed nose</em>) serta jenis rambut (<em>long straight black hair</em>).`
+            },
+            {
+                id: 27, type: 'complex', maxSelect: 2, topic: "PGK 7 • Physical Appearance (Height & Build)",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800 mb-2"><em>"Danu is a basketball player. Physically, he is ...................."</em> Select <strong>2 suitable physical traits</strong>:</p>
+                `,
+                options: [
+                    { text: "tall and athletic", isCorrect: true },
+                    { text: "well-built and strong", isCorrect: true },
+                    { text: "crispy and sweet", isCorrect: false },
+                    { text: "sour and watery", isCorrect: false }
+                ],
+                explanation: `Deskripsi tubuh atlet basket yang tepat adalah tinggi dan atletis (<em>tall and athletic</em>) serta tegap dan kuat (<em>well-built and strong</em>).`
+            },
+            {
+                id: 28, type: 'complex', maxSelect: 2, topic: "PGK 8 • Recipe (Ingredients)",
+                questionHtml: `
+                    <div class="bg-amber-50/80 border border-amber-200 rounded-xl p-3.5 text-sm mb-2">
+                        <strong>Banana Smoothie Ingredients:</strong> 2 ripe bananas, 1 cup of cold milk, 1 tablespoon of honey, and 5 ice cubes.
+                    </div>
+                    <p class="text-sm sm:text-base font-medium text-slate-800">Which <strong>2 ingredients</strong> are needed to make Banana Smoothie?</p>
+                `,
+                options: [
+                    { text: "Two ripe bananas", isCorrect: true },
+                    { text: "A tablespoon of honey", isCorrect: true },
+                    { text: "Shredded chicken", isCorrect: false },
+                    { text: "Cooking oil and salt", isCorrect: false }
+                ],
+                explanation: `Bahan yang tercantum dalam resep adalah 2 pisang matang (<em>Two ripe bananas</em>) dan 1 sendok makan madu (<em>A tablespoon of honey</em>).`
+            },
+            {
+                id: 29, type: 'complex', maxSelect: 2, topic: "PGK 9 • Recipe (Action Steps)",
+                questionHtml: `
+                    <div class="bg-amber-50/80 border border-amber-200 rounded-xl p-3.5 text-sm mb-2">
+                        <strong>Banana Smoothie Steps:</strong> Peel the bananas and slice them. Put all ingredients into a blender. Blend for 30 seconds until smooth. Pour into a tall glass.
+                    </div>
+                    <p class="text-sm sm:text-base font-medium text-slate-800">Select <strong>2 correct steps</strong> from the instructions above:</p>
+                `,
+                options: [
+                    { text: "Peel and slice the bananas", isCorrect: true },
+                    { text: "Blend the ingredients until smooth", isCorrect: true },
+                    { text: "Fry the bananas in hot oil", isCorrect: false },
+                    { text: "Bake the smoothie in the oven", isCorrect: false }
+                ],
+                explanation: `Langkah yang benar sesuai instruksi adalah mengupas lalu mengiris pisang serta memblendernya sampai halus.`
+            },
+            {
+                id: 30, type: 'complex', maxSelect: 2, topic: "PGK 10 • Command and Prohibition",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800 mb-2">Situation: <strong>You are inside the school library.</strong> Choose <strong>2 correct command/prohibition signs</strong> for this place:</p>
+                `,
+                options: [
+                    { text: "Keep silent, please!", isCorrect: true },
+                    { text: "Don't eat or drink inside!", isCorrect: true },
+                    { text: "Kick the ball hard!", isCorrect: false },
+                    { text: "Turn up the loud music!", isCorrect: false }
+                ],
+                explanation: `Di perpustakaan berlaku perintah menjaga ketenangan (<em>Keep silent</em>) dan larangan makan/minum (<em>Don't eat or drink</em>).`
+            },
+            {
+                id: 31, type: 'complex', maxSelect: 2, topic: "PGK 11 • Pronouns in Context",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800 mb-2">Read: <em>"Rani is a diligent student. .................... always does .................... homework on time."</em> Choose <strong>2 pronouns</strong> that correctly fill the blanks:</p>
+                `,
+                options: [
+                    { text: "She (first blank)", isCorrect: true },
+                    { text: "her (second blank)", isCorrect: true },
+                    { text: "He (first blank)", isCorrect: false },
+                    { text: "their (second blank)", isCorrect: false }
+                ],
+                explanation: `Rani adalah perempuan tunggal, sehingga kata ganti subjeknya adalah <strong>She</strong> dan kata ganti kepemilikannya adalah <strong>her</strong>.`
+            },
+            {
+                id: 32, type: 'complex', maxSelect: 2, topic: "PGK 12 • Simple Present Tense (Pronouns)",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800 mb-2"><em>"Budi and I are classmates. .................... walk to school together every morning with .................... bags."</em> Select <strong>2 correct pronouns</strong>:</p>
+                `,
+                options: [
+                    { text: "We (first blank)", isCorrect: true },
+                    { text: "our (second blank)", isCorrect: true },
+                    { text: "They (first blank)", isCorrect: false },
+                    { text: "his (second blank)", isCorrect: false }
+                ],
+                explanation: `<em>Budi and I</em> berarti "kami" (<strong>We</strong>), dan kepemilikan untuk "kami" adalah <strong>our</strong>.`
+            },
+            {
+                id: 33, type: 'complex', maxSelect: 2, topic: "PGK 13 • Simple Present (have / has)",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800 mb-2">Choose <strong>2 sentences</strong> that use <strong>"have"</strong> or <strong>"has"</strong> accurately:</p>
+                `,
+                options: [
+                    { text: "Dina has curly hair and dimples.", isCorrect: true },
+                    { text: "They have two English classes every week.", isCorrect: true },
+                    { text: "My father have a new motorcycle.", isCorrect: false },
+                    { text: "I has a cute white cat.", isCorrect: false }
+                ],
+                explanation: `Subjek tunggal orang ketiga (<em>Dina</em>) menggunakan <strong>has</strong>, sedangkan subjek jamak (<em>They</em>) menggunakan <strong>have</strong>.`
+            },
+            {
+                id: 34, type: 'complex', maxSelect: 2, topic: "PGK 14 • Tools in a Recipe",
+                questionHtml: `
+                    <div class="bg-amber-50/80 border border-amber-200 rounded-xl p-3.5 text-sm mb-2">
+                        <strong>Cooking Fried Rice:</strong> Chop the garlic using a sharp knife on a cutting board. Heat oil in a wok, stir-fry the rice with a spatula, and serve on a plate.
+                    </div>
+                    <p class="text-sm sm:text-base font-medium text-slate-800">Select <strong>2 kitchen tools</strong> mentioned in the recipe above:</p>
+                `,
+                options: [
+                    { text: "A sharp knife and cutting board", isCorrect: true },
+                    { text: "A wok and a spatula", isCorrect: true },
+                    { text: "A blender and toaster", isCorrect: false },
+                    { text: "A rolling pin and oven", isCorrect: false }
+                ],
+                explanation: `Alat masak yang disebutkan pada resep adalah pisau tajam, talenan (<em>cutting board</em>), wajan (<em>wok</em>), dan spatula.`
+            },
+            {
+                id: 35, type: 'complex', maxSelect: 2, topic: "PGK 15 • Ingredients in a Recipe",
+                questionHtml: `
+                    <div class="bg-amber-50/80 border border-amber-200 rounded-xl p-3.5 text-sm mb-2">
+                        <strong>Vegetable Soup Ingredients:</strong> 2 carrots, 1 potato, 5 green beans, 2 cloves of garlic, salt, pepper, and 1 liter of water.
+                    </div>
+                    <p class="text-sm sm:text-base font-medium text-slate-800">Which <strong>2 ingredients</strong> are used to make Vegetable Soup?</p>
+                `,
+                options: [
+                    { text: "Carrots and potato", isCorrect: true },
+                    { text: "Garlic, salt, and pepper", isCorrect: true },
+                    { text: "Strawberries and honey", isCorrect: false },
+                    { text: "Chocolate powder and butter", isCorrect: false }
+                ],
+                explanation: `Bahan-bahan sup sayur di atas mencakup wortel, kentang, buncis, bawang putih, garam, dan lada.`
+            },
+
+            // ==================== MENJODOHKAN BAHASA INGGRIS (NO 1 - 5 -> INDEX 36 - 40) ====================
+            {
+                id: 36, type: 'matching', topic: "Menjodohkan 1 • Physical Appearance",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800">Tarik garis (klik item kiri lalu klik pasangannya di kanan) untuk menjodohkan kosakata <strong>ciri fisik</strong> berikut dengan artinya:</p>
+                `,
+                pairs: [
+                    { left: "Curly hair", right: "Rambut keriting" },
+                    { left: "Pointed nose", right: "Hidung mancung" },
+                    { left: "Slim body", right: "Tubuh langsing" }
+                ],
+                explanation: `<em>Curly hair</em> = rambut keriting, <em>Pointed nose</em> = hidung mancung, <em>Slim body</em> = tubuh langsing.`
+            },
+            {
+                id: 37, type: 'matching', topic: "Menjodohkan 2 • Personality Traits",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800">Tarik garis untuk mencocokkan kata sifat kepribadian (<strong>Personality Traits</strong>) berikut dengan arti yang tepat:</p>
+                `,
+                pairs: [
+                    { left: "Diligent", right: "Rajin" },
+                    { left: "Generous", right: "Dermawan / murah hati" },
+                    { left: "Humble", right: "Rendah hati" }
+                ],
+                explanation: `<em>Diligent</em> = rajin, <em>Generous</em> = dermawan, <em>Humble</em> = rendah hati.`
+            },
+            {
+                id: 38, type: 'matching', topic: "Menjodohkan 3 • Kitchen Utensil & Vegetables",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800">Tarik garis untuk menjodohkan nama <strong>alat dapur, bumbu, dan sayuran</strong> berikut dengan artinya:</p>
+                `,
+                pairs: [
+                    { left: "Frying pan", right: "Wajan penggorengan" },
+                    { left: "Garlic", right: "Bawang putih" },
+                    { left: "Spinach", right: "Bayam" }
+                ],
+                explanation: `<em>Frying pan</em> = wajan penggorengan, <em>Garlic</em> = bawang putih, <em>Spinach</em> = bayam.`
+            },
+            {
+                id: 39, type: 'matching', topic: "Menjodohkan 4 • Command and Prohibition",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800">Tarik garis untuk memasangkan kalimat <strong>perintah dan larangan</strong> berikut dengan terjemahannya:</p>
+                `,
+                pairs: [
+                    { left: "Wash your hands!", right: "Cucilah tanganmu!" },
+                    { left: "Don't litter!", right: "Jangan membuang sampah sembarangan!" },
+                    { left: "Turn off the stove!", right: "Matikan kompornya!" }
+                ],
+                explanation: `<em>Wash your hands!</em> = Cucilah tanganmu!, <em>Don't litter!</em> = Jangan buang sampah sembarangan!, <em>Turn off the stove!</em> = Matikan kompornya!`
+            },
+            {
+                id: 40, type: 'matching', topic: "Menjodohkan 5 • Simple Present (to be & to have)",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800">Tarik garis untuk melengkapi kalimat Simple Present berikut dengan pasangan <strong>to be / to have</strong> yang benar:</p>
+                `,
+                pairs: [
+                    { left: "She ....... a new pencil case.", right: "has" },
+                    { left: "We ....... students of grade 7.", right: "are" },
+                    { left: "I ....... two younger brothers.", right: "have" }
+                ],
+                explanation: `<em>She</em> menggunakan <strong>has</strong>, <em>We</em> menggunakan <strong>are</strong>, dan <em>I</em> menggunakan <strong>have</strong>.`
+            }
+        ];
+
+        /**
+         * BANK SOAL SENI BUDAYA / SBdP (40 SOAL - 100% SESUAI KISI-KISI USER)
+         * - PG: 1 - 20
+         * - PGK: 21 - 35 (Nomor PGK 1 - 15)
+         * - Menjodohkan: 36 - 40 (Nomor Menjodohkan 1 - 5)
+         */
+        const SBDP_QUESTIONS = [
+            // --- PG 1-2: Unsur dan prinsip seni rupa ---
+            {
+                id: 1, type: 'pg', topic: "PG 1 • Unsur Seni Rupa",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800">Unsur seni rupa yang paling dasar dan menjadi awal mula terbentuknya garis, bidang, maupun bentuk adalah ....</p>
+                `,
+                options: ["Titik (bintik)", "Tekstur", "Gelap terang", "Komposisi"],
+                correctIndex: 0,
+                explanation: `<strong>Titik</strong> merupakan unsur fisik seni rupa yang paling mendasar sebelum berkembang menjadi garis dan bidang.`
+            },
+            {
+                id: 2, type: 'pg', topic: "PG 2 • Prinsip Seni Rupa",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800">Prinsip seni rupa yang berkaitan dengan pengaturan unsur-unsur rupa agar tidak berat sebelah dan tampak stabil disebut ....</p>
+                `,
+                options: ["Keseimbangan (Balance)", "Gradasi warna", "Tekstur semu", "Arsiran silang"],
+                correctIndex: 0,
+                explanation: `<strong>Keseimbangan (balance)</strong> adalah prinsip yang menjaga kesetaraan bobot visual antara bagian kiri, kanan, atas, dan bawah karya.`
+            },
+            // --- PG 3-4: Warna ---
+            {
+                id: 3, type: 'pg', topic: "PG 3 • Teori Warna (Primer)",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800">Warna pokok yang tidak dapat dihasilkan dari pencampuran warna lain disebut warna primer, yaitu ....</p>
+                `,
+                options: ["Merah, kuning, dan biru", "Hijau, jingga, dan ungu", "Hitam, putih, dan abu-abu", "Cokelat, merah muda, dan biru muda"],
+                correctIndex: 0,
+                explanation: `Tiga warna primer (pokok) dalam seni rupa adalah <strong>merah, kuning, dan biru</strong>.`
+            },
+            {
+                id: 4, type: 'pg', topic: "PG 4 • Teori Warna (Sekunder)",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800">Jika warna primer <strong>biru</strong> dicampurkan dengan warna primer <strong>kuning</strong> dalam perbandingan seimbang, akan menghasilkan warna sekunder yaitu ....</p>
+                `,
+                options: ["Hijau", "Ungu", "Jingga (oranye)", "Cokelat tua"],
+                correctIndex: 0,
+                explanation: `Pencampuran warna biru dan kuning menghasilkan warna sekunder <strong>hijau</strong>.`
+            },
+            // --- PG 5-6: Alat dan bahan ---
+            {
+                id: 5, type: 'pg', topic: "PG 5 • Alat dan Bahan Menggambar",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800">Jenis pensil yang memiliki sifat lunak, berwarna hitam pekat, dan sangat cocok digunakan untuk membuat bayangan atau arsiran gelap adalah kode pensil ....</p>
+                `,
+                options: ["2B hingga 6B", "2H hingga 6H", "F dan HB", "Pensil warna putih"],
+                correctIndex: 0,
+                explanation: `Pensil berkode <strong>B (Black)</strong> seperti 2B–6B memiliki grafit lunak dan pekat sehingga ideal untuk arsiran bayangan.`
+            },
+            {
+                id: 6, type: 'pg', topic: "PG 6 • Alat dan Bahan Menggambar",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800">Dalam kegiatan menggambar menggunakan teknik basah, alat yang berfungsi sebagai tempat mencampur dan mengencerkan cat air adalah ....</p>
+                `,
+                options: ["Palet", "Rautan", "Jangka", "Karet penghapus"],
+                correctIndex: 0,
+                explanation: `<strong>Palet</strong> adalah wadah berlekuk yang digunakan untuk menampung dan mencampur cat air/poster sebelum disapukan dengan kuas.`
+            },
+            // --- PG 7-9: Teknik-teknik menggambar ---
+            {
+                id: 7, type: 'pg', topic: "PG 7 • Teknik Menggambar",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800">Teknik menggambar dengan cara menggoreskan garis-garis sejajar atau menyilang secara berulang untuk menentukan gelap terang objek disebut teknik ....</p>
+                `,
+                options: ["Arsir", "Pointilis", "Aquarel", "Plakat"],
+                correctIndex: 0,
+                explanation: `<strong>Teknik arsir</strong> menggunakan goresan garis sejajar atau menyilang untuk menciptakan kesan dimensi dan gelap terang.`
+            },
+            {
+                id: 8, type: 'pg', topic: "PG 8 • Teknik Menggambar",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800">Teknik melukis atau menggambar dengan menyusun titik-titik kecil secara rapat untuk area gelap dan renggang untuk area terang disebut teknik ....</p>
+                `,
+                options: ["Pointilis", "Dussel", "Blok (siluet)", "Linier"],
+                correctIndex: 0,
+                explanation: `<strong>Teknik pointilis</strong> membentuk objek dan gradasi bayangan melalui kumpulan titik-titik kecil.`
+            },
+            {
+                id: 9, type: 'pg', topic: "PG 9 • Teknik Menggambar",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800">Teknik mewarnai menggunakan cat air dengan sapuan warna yang tipis dan transparan sehingga serat kertas masih terlihat disebut teknik ....</p>
+                `,
+                options: ["Aquarel", "Plakat", "Dussel", "Sketsa"],
+                correctIndex: 0,
+                explanation: `<strong>Teknik aquarel</strong> menggunakan banyak air dan sapuan tipis transparan, berbeda dengan teknik plakat yang tebal dan menutup.`
+            },
+            // --- PG 10: Tahap-tahap menggambar ---
+            {
+                id: 10, type: 'pg', topic: "PG 10 • Tahap-tahap Menggambar",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800">Langkah paling awal yang harus dilakukan sebelum mulai membuat sketsa dalam menggambar model alam benda adalah ....</p>
+                `,
+                options: ["Mengetahui bentuk dasar objek yang akan digambar", "Langsung mewarnai seluruh bidang kertas dengan cat", "Menebalkan garis tepi menggunakan spidol permanen", "Menghapus seluruh garis bantu sebelum melihat objek"],
+                correctIndex: 0,
+                explanation: `Tahap pertama menggambar adalah melakukan pengamatan dan <strong>mengetahui bentuk dasar objek</strong> (misalnya tabung, bola, atau kubus) sebelum membuat sketsa.`
+            },
+            // --- PG 11: Ragam hias secara umum ---
+            {
+                id: 11, type: 'pg', topic: "PG 11 • Ragam Hias Secara Umum",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800">Bentuk dasar hiasan yang umumnya diulang-ulang hingga membentuk pola indah pada karya kerajinan, kain batik, maupun ukiran disebut ....</p>
+                `,
+                options: ["Ragam hias (ornamen)", "Gambar perspektif", "Patung konstruksi", "Lukisan abstrak"],
+                correctIndex: 0,
+                explanation: `<strong>Ragam hias (ornamen)</strong> merupakan bentuk hiasan berpola yang diterapkan untuk memperindah suatu benda atau bidang.`
+            },
+            // --- PG 12-14: Motif-motif ragam hias ---
+            {
+                id: 12, type: 'pg', topic: "PG 12 • Motif Ragam Hias",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800">Motif ragam hias yang sumber inspirasinya berasal dari bentuk tumbuh-tumbuhan seperti sulur, daun, dan bunga disebut motif ....</p>
+                `,
+                options: ["Flora (vegetal)", "Fauna (animal)", "Geometris", "Figuratif"],
+                correctIndex: 0,
+                explanation: `Motif <strong>flora</strong> mengangkat keindahan bentuk tumbuhan (daun, bunga, sulur) yang digayakan (stilasi).`
+            },
+            {
+                id: 13, type: 'pg', topic: "PG 13 • Motif Ragam Hias",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800">Motif ragam hias yang memanfaatkan unsur-unsur ilmu ukur seperti garis lurus, lengkung, lingkaran, segitiga, dan zig-zag disebut motif ....</p>
+                `,
+                options: ["Geometris", "Figuratif", "Fauna", "Flora"],
+                correctIndex: 0,
+                explanation: `Motif <strong>geometris</strong> disusun dari bentuk-bentuk terukur seperti pilin, meander, tumpal (segitiga), dan lingkaran.`
+            },
+            {
+                id: 14, type: 'pg', topic: "PG 14 • Motif Ragam Hias",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800">Motif ragam hias yang mengambil objek manusia sebagai bentuk dasar yang digayakan (seperti topeng atau wayang) disebut motif ....</p>
+                `,
+                options: ["Figuratif", "Fauna", "Geometris", "Abstrak"],
+                correctIndex: 0,
+                explanation: `Motif <strong>figuratif</strong> menggunakan objek figur manusia yang mengalami penggayaan bentuk.`
+            },
+            // --- PG 15-16: Teknik-teknik menggambar ragam hias ---
+            {
+                id: 15, type: 'pg', topic: "PG 15 • Teknik Menggambar Ragam Hias",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800">Proses menggayakan atau mengubah bentuk alami (seperti bunga atau burung) menjadi bentuk ragam hias yang lebih artistik tanpa meninggalkan ciri khas aslinya disebut ....</p>
+                `,
+                options: ["Stilasi (penggayaan)", "Deformasi total", "Distorsi", "Fotorealisme"],
+                correctIndex: 0,
+                explanation: `<strong>Stilasi</strong> adalah teknik menggayakan bentuk alami menjadi bentuk ornamen dekoratif yang indah.`
+            },
+            {
+                id: 16, type: 'pg', topic: "PG 16 • Teknik Menggambar Ragam Hias",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800">Dalam menggambar ragam hias geometris agar ukuran setiap pengulangan pola presisi dan rapi, sebaiknya menggunakan teknik ....</p>
+                `,
+                options: ["Mistar / garis bantu berpola terukur", "Sapuan kuas bebas tanpa sketsa", "Gosokan arang secara acak", "Percikan cat dari jarak jauh"],
+                correctIndex: 0,
+                explanation: `Ragam hias geometris membutuhkan keteraturan ukuran sehingga menggunakan bantuan <strong>mistar dan garis bantu pola</strong>.`
+            },
+            // --- PG 17-18: Tahap-tahap membuat ragam hias ---
+            {
+                id: 17, type: 'pg', topic: "PG 17 • Tahap Membuat Ragam Hias",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800">Urutan tahapan yang tepat dalam menggambar ragam hias adalah ....</p>
+                `,
+                options: [
+                    "Menentukan pola – membuat sketsa – menggambar detail motif – mewarnai",
+                    "Mewarnai kertas – menghapus sketsa – menentukan motif – memberi garis tepi",
+                    "Membuat detail motif – langsung mewarnai – menentukan ukuran bidang",
+                    "Menghapus garis bantu – menentukan tema – menebalkan warna"
+                ],
+                correctIndex: 0,
+                explanation: `Langkah sistematis menggambar ragam hias dimulai dari menentukan pola/ukuran, membuat sketsa, melengkapi detail bentuk, lalu pewarnaan.`
+            },
+            {
+                id: 18, type: 'pg', topic: "PG 18 • Tahap Membuat Ragam Hias",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800">Tahap penyelesaian akhir (finishing) pada pembuatan gambar ragam hias setelah motif selesai diwarnai adalah ....</p>
+                `,
+                options: ["Membersihkan sisa garis bantu pensil dan merapikan tepian", "Mengganti seluruh motif dengan pola baru", "Melipat kertas gambar menjadi beberapa bagian", "Menghapus seluruh warna yang sudah kering"],
+                correctIndex: 0,
+                explanation: `Tahap akhir adalah merapikan garis tepi dan membersihkan sisa garis bantu pensil agar karya tampak bersih.`
+            },
+            // --- PG 19-20: Alat/bahan menggambar ragam hias ---
+            {
+                id: 19, type: 'pg', topic: "PG 19 • Alat/Bahan Menggambar Ragam Hias",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800">Alat ukur yang sangat diperlukan saat membuat garis-garis bantu bidang beraturan pada ragam hias geometris adalah ....</p>
+                `,
+                options: ["Penggaris (mistar) dan jangka", "Kuas cat minyak dan pisau palet", "Pahat kayu dan palu", "Canting dan wajan malam"],
+                correctIndex: 0,
+                explanation: `<strong>Penggaris dan jangka</strong> digunakan untuk membentuk garis lurus dan lengkungan geometris secara presisi.`
+            },
+            {
+                id: 20, type: 'pg', topic: "PG 20 • Alat/Bahan Menggambar Ragam Hias",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800">Bahan pewarna kering yang menghasilkan goresan lembut, tebal, dan mudah dibaurkan pada gambar ragam hias di atas kertas adalah ....</p>
+                `,
+                options: ["Krayon / oil pastel", "Cat air encer", "Tinta bak cair", "Cat akrilik"],
+                correctIndex: 0,
+                explanation: `<strong>Krayon (oil pastel)</strong> adalah bahan pewarna kering yang menghasilkan warna tebal dan mudah di-gradasi.`
+            },
+
+            // ==================== PGK SBdP (NO 1 - 15 -> INDEX 21 - 35) ====================
+            {
+                id: 21, type: 'complex', maxSelect: 2, topic: "PGK 1 • Warna",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800 mb-2">Pilihlah <strong>2 pernyataan yang benar</strong> mengenai pengelompokan warna dalam seni rupa:</p>
+                `,
+                options: [
+                    { text: "Merah, kuning, dan biru adalah warna primer", isCorrect: true },
+                    { text: "Hijau, jingga, dan ungu adalah warna sekunder", isCorrect: true },
+                    { text: "Hitam dan putih termasuk warna primer", isCorrect: false },
+                    { text: "Campuran merah dan biru menghasilkan warna kuning", isCorrect: false }
+                ],
+                explanation: `Warna primer terdiri dari merah, kuning, biru; sedangkan hasil campuran dua warna primer disebut warna sekunder (hijau, jingga, ungu).`
+            },
+            {
+                id: 22, type: 'complex', maxSelect: 2, topic: "PGK 2 • Prinsip-prinsip Seni",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800 mb-2">Manakah di bawah ini yang termasuk <strong>2 prinsip dasar seni rupa</strong>? (Pilih 2 jawaban)</p>
+                `,
+                options: [
+                    { text: "Kesatuan (Unity) dan Keseimbangan (Balance)", isCorrect: true },
+                    { text: "Irama (Rhythm) dan Proporsi (Proportion)", isCorrect: true },
+                    { text: "Titik dan Garis lengkung", isCorrect: false },
+                    { text: "Kuas dan Palet lukis", isCorrect: false }
+                ],
+                explanation: `Kesatuan, keseimbangan, irama, dan proporsi merupakan prinsip seni rupa; sedangkan titik dan garis adalah unsur seni rupa.`
+            },
+            {
+                id: 23, type: 'complex', maxSelect: 2, topic: "PGK 3 • Prinsip-prinsip Seni",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800 mb-2">Pilih <strong>2 contoh penerapan prinsip proporsi dan komposisi</strong> yang tepat saat menggambar alam benda:</p>
+                `,
+                options: [
+                    { text: "Perbandingan ukuran cangkir lebih kecil daripada teko", isCorrect: true },
+                    { text: "Penempatan objek tidak menumpuk di satu sudut kertas saja", isCorrect: true },
+                    { text: "Menggambar gelas jauh lebih besar daripada lemari di sebelahnya", isCorrect: false },
+                    { text: "Mewarnai keluar dari batas garis gambar secara acak", isCorrect: false }
+                ],
+                explanation: `Proporsi menjaga perbandingan ukuran antarobjek tetap wajar, dan komposisi mengatur tata letak objek agar harmonis.`
+            },
+            {
+                id: 24, type: 'complex', maxSelect: 2, topic: "PGK 4 • Teknik-teknik Menggambar",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800 mb-2">Pilih <strong>2 teknik menggambar kering</strong> (tidak menggunakan pengencer air/minyak):</p>
+                `,
+                options: [
+                    { text: "Teknik arsir menggunakan pensil grafit", isCorrect: true },
+                    { text: "Teknik dussel (gosok) dengan konte atau pensil lunak", isCorrect: true },
+                    { text: "Teknik aquarel menggunakan cat air", isCorrect: false },
+                    { text: "Teknik plakat menggunakan cat poster", isCorrect: false }
+                ],
+                explanation: `Teknik arsir dan dussel menggunakan media kering seperti pensil dan konte tanpa pengencer cair.`
+            },
+            {
+                id: 25, type: 'complex', maxSelect: 2, topic: "PGK 5 • Teknik-teknik Menggambar",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800 mb-2">Pilih <strong>2 ciri yang tepat dari teknik dussel (gosok)</strong> dalam menggambar:</p>
+                `,
+                options: [
+                    { text: "Menghasilkan gradasi gelap terang yang halus", isCorrect: true },
+                    { text: "Menggunakan bantuan kapas, tisu, atau jari untuk menggosok", isCorrect: true },
+                    { text: "Menggunakan titik-titik tinta yang terpisah", isCorrect: false },
+                    { text: "Memerlukan sapuan kuas berair banyak", isCorrect: false }
+                ],
+                explanation: `Teknik dussel menggosokkan goresan pensil/konte menggunakan kapas atau jari sehingga bayangan terlihat halus.`
+            },
+            {
+                id: 26, type: 'complex', maxSelect: 2, topic: "PGK 6 • Bahan dalam Menggambar",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800 mb-2">Manakah <strong>2 bahan pewarna yang termasuk media basah</strong> dalam menggambar? (Pilih 2 jawaban)</p>
+                `,
+                options: [
+                    { text: "Cat air (watercolor)", isCorrect: true },
+                    { text: "Cat poster dan tinta bak", isCorrect: true },
+                    { text: "Pensil warna dan krayon", isCorrect: false },
+                    { text: "Arang (charcoal) dan kapur tulis", isCorrect: false }
+                ],
+                explanation: `Cat air, cat poster, dan tinta bak memerlukan pengencer cair sehingga tergolong media basah.`
+            },
+            {
+                id: 27, type: 'complex', maxSelect: 2, topic: "PGK 7 • Tentang Ragam Hias",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800 mb-2">Pilih <strong>2 pernyataan yang benar</strong> mengenai fungsi dan keberadaan ragam hias Nusantara:</p>
+                `,
+                options: [
+                    { text: "Berfungsi untuk menambah nilai keindahan suatu benda", isCorrect: true },
+                    { text: "Banyak diterapkan pada kain batik, tenun, dan ukiran kayu", isCorrect: true },
+                    { text: "Hanya boleh digambar di atas kertas putih saja", isCorrect: false },
+                    { text: "Tidak memiliki makna simbolis budaya daerah", isCorrect: false }
+                ],
+                explanation: `Ragam hias berfungsi memperindah benda dan diterapkan pada berbagai media seperti kain batik, tenun, gerabah, dan ukiran kayu.`
+            },
+            {
+                id: 28, type: 'complex', maxSelect: 2, topic: "PGK 8 • Motif Ragam Hias",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800 mb-2">Pilih <strong>2 contoh objek yang sering dijadikan motif ragam hias fauna</strong> di Indonesia:</p>
+                `,
+                options: [
+                    { text: "Burung cenderawasih dan kupu-kupu", isCorrect: true },
+                    { text: "Ikan, gajah, dan naga", isCorrect: true },
+                    { text: "Bunga teratai dan daun sulur", isCorrect: false },
+                    { text: "Garis zig-zag dan lingkaran", isCorrect: false }
+                ],
+                explanation: `Burung cenderawasih, kupu-kupu, ikan, dan gajah adalah contoh motif fauna (hewan).`
+            },
+            {
+                id: 29, type: 'complex', maxSelect: 2, topic: "PGK 9 • Motif Ragam Hias",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800 mb-2">Manakah yang termasuk <strong>2 contoh motif ragam hias geometris</strong>? (Pilih 2 jawaban)</p>
+                `,
+                options: [
+                    { text: "Motif tumpal (bentuk segitiga berderet)", isCorrect: true },
+                    { text: "Motif meander dan pilin berganda", isCorrect: true },
+                    { text: "Motif ukiran burung merak", isCorrect: false },
+                    { text: "Motif sulur daun pakis", isCorrect: false }
+                ],
+                explanation: `Tumpal (segitiga), meander, dan pilin adalah ragam hias geometris yang disusun dari bentuk ilmu ukur.`
+            },
+            {
+                id: 30, type: 'complex', maxSelect: 2, topic: "PGK 10 • Alat & Bahan Ragam Hias",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800 mb-2">Pilih <strong>2 alat utama</strong> yang digunakan untuk membuat sketsa awal ragam hias di atas kertas gambar:</p>
+                `,
+                options: [
+                    { text: "Pensil grafit (HB atau 2B)", isCorrect: true },
+                    { text: "Penghapus karet dan penggaris", isCorrect: true },
+                    { text: "Gergaji kayu dan pahat", isCorrect: false },
+                    { text: "Canting tembaga dan kompor", isCorrect: false }
+                ],
+                explanation: `Membuat sketsa ragam hias di kertas menggunakan pensil grafit, penghapus, dan penggaris.`
+            },
+            {
+                id: 31, type: 'complex', maxSelect: 2, topic: "PGK 11 • Alat & Bahan Ragam Hias",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800 mb-2">Jika kita ingin membuat karya ragam hias di atas media <strong>kain tekstil</strong>, pilih <strong>2 bahan</strong> yang sesuai digunakan:</p>
+                `,
+                options: [
+                    { text: "Cat tekstil / cat akrilik", isCorrect: true },
+                    { text: "Pewarna batik (naphtol / remazol)", isCorrect: true },
+                    { text: "Kapur papan tulis", isCorrect: false },
+                    { text: "Pensil warna kayu biasa", isCorrect: false }
+                ],
+                explanation: `Pewarnaan ragam hias pada kain membutuhkan cat tekstil, cat akrilik, atau zat pewarna batik agar tidak luntur.`
+            },
+            {
+                id: 32, type: 'complex', maxSelect: 2, topic: "PGK 12 • Teknik Ragam Hias",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800 mb-2">Pilih <strong>2 prinsip penting</strong> dalam teknik menggambar ragam hias agar hasilnya harmonis:</p>
+                `,
+                options: [
+                    { text: "Memperhatikan pola bentuk yang akan digambar", isCorrect: true },
+                    { text: "Menjaga keseimbangan dan keserasian komposisi warna", isCorrect: true },
+                    { text: "Menggambar tanpa memperhatikan ukuran bidang", isCorrect: false },
+                    { text: "Mencampur semua warna menjadi hitam pekat", isCorrect: false }
+                ],
+                explanation: `Teknik menggambar ragam hias memerlukan ketelitian pada pola pengulangan bentuk serta keseimbangan komposisi.`
+            },
+            {
+                id: 33, type: 'complex', maxSelect: 2, topic: "PGK 13 • Teknik Ragam Hias",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800 mb-2">Penerapan ragam hias pada media kayu dapat dilakukan dengan <strong>2 teknik utama</strong>, yaitu ....</p>
+                `,
+                options: [
+                    { text: "Teknik mengukir (memahat permukaan kayu)", isCorrect: true },
+                    { text: "Teknik melukis (menggambar langsung dengan cat)", isCorrect: true },
+                    { text: "Teknik menenun benang", isCorrect: false },
+                    { text: "Teknik menyulam dengan jarum jahit", isCorrect: false }
+                ],
+                explanation: `Ragam hias di atas bahan kayu umumnya dikerjakan dengan teknik ukir (pahat) maupun lukis cat.`
+            },
+            {
+                id: 34, type: 'complex', maxSelect: 2, topic: "PGK 14 • Tahap Membuat Ragam Hias",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800 mb-2">Pilih <strong>2 kegiatan yang dilakukan pada tahap awal</strong> pembuatan gambar ragam hias:</p>
+                `,
+                options: [
+                    { text: "Mempersiapkan alat dan bahan gambar", isCorrect: true },
+                    { text: "Menentukan ukuran pola gambar yang akan dibuat", isCorrect: true },
+                    { text: "Memberi vernis mengilap pada gambar", isCorrect: false },
+                    { text: "Menghapus garis bantu setelah pewarnaan selesai", isCorrect: false }
+                ],
+                explanation: `Tahap awal meliputi persiapan alat/bahan dan penentuan ukuran serta pola bidang gambar.`
+            },
+            {
+                id: 35, type: 'complex', maxSelect: 2, topic: "PGK 15 • Tahap Membuat Ragam Hias",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800 mb-2">Pilih <strong>2 kegiatan yang dilakukan pada tahap pertengahan hingga akhir</strong> saat menggambar ragam hias:</p>
+                `,
+                options: [
+                    { text: "Membuat bentuk yang sama (pengulangan) pada bagian lain", isCorrect: true },
+                    { text: "Mewarnai motif dengan gradasi warna yang serasi", isCorrect: true },
+                    { text: "Baru membeli kertas dan pensil di toko", isCorrect: false },
+                    { text: "Merobek pola sketsa utama", isCorrect: false }
+                ],
+                explanation: `Setelah sketsa motif jadi, tahap berikutnya adalah mengulang pola pada bidang lain dan mewarnainya dengan serasi.`
+            },
+
+            // ==================== MENJODOHKAN SBdP (NO 1 - 5 -> INDEX 36 - 40) ====================
+            {
+                id: 36, type: 'matching', topic: "Menjodohkan 1 • Alat dan Teknik",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800">Tarik garis (klik item kiri lalu klik pasangannya di kanan) untuk menjodohkan <strong>alat dan teknik menggambar</strong> berikut:</p>
+                `,
+                pairs: [
+                    { left: "Kuas & Cat Air", right: "Teknik Aquarel" },
+                    { left: "Pensil 2B", right: "Teknik Arsir" },
+                    { left: "Kapas / Jari", right: "Teknik Dussel (Gosok)" }
+                ],
+                explanation: `Kuas & cat air digunakan pada teknik aquarel, pensil 2B untuk arsir, dan kapas/jari untuk teknik gosok (dussel).`
+            },
+            {
+                id: 37, type: 'matching', topic: "Menjodohkan 2 • Warna",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800">Tarik garis untuk mencocokkan jenis dan hasil pencampuran <strong>warna</strong> berikut:</p>
+                `,
+                pairs: [
+                    { left: "Merah + Kuning", right: "Warna Jingga (Oranye)" },
+                    { left: "Merah + Biru", right: "Warna Ungu" },
+                    { left: "Merah, Kuning, Biru", right: "Warna Primer" }
+                ],
+                explanation: `Merah+kuning = jingga, merah+biru = ungu, sedangkan merah, kuning, dan biru adalah warna primer.`
+            },
+            {
+                id: 38, type: 'matching', topic: "Menjodohkan 3 • Motif-motif Ragam Hias",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800">Tarik garis untuk memasangkan <strong>jenis motif ragam hias</strong> dengan contoh objeknya:</p>
+                `,
+                pairs: [
+                    { left: "Motif Flora", right: "Sulur daun dan bunga" },
+                    { left: "Motif Fauna", right: "Burung cenderawasih" },
+                    { left: "Motif Geometris", right: "Segitiga tumpal dan pilin" }
+                ],
+                explanation: `Flora = tumbuhan, Fauna = hewan, dan Geometris = bentuk ilmu ukur seperti tumpal dan pilin.`
+            },
+            {
+                id: 39, type: 'matching', topic: "Menjodohkan 4 • Teknik Ragam Hias",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800">Tarik garis untuk menjodohkan istilah <strong>teknik ragam hias</strong> berikut dengan pengertiannya:</p>
+                `,
+                pairs: [
+                    { left: "Stilasi", right: "Menggayakan bentuk alami menjadi ornamen" },
+                    { left: "Simetris", right: "Pola seimbang sama antara kiri dan kanan" },
+                    { left: "Ukiran", right: "Teknik memahat ragam hias pada kayu" }
+                ],
+                explanation: `Stilasi adalah penggayaan bentuk, simetris adalah keseimbangan pola sama sisi, dan ukiran adalah teknik pahat kayu.`
+            },
+            {
+                id: 40, type: 'matching', topic: "Menjodohkan 5 • Langkah-langkah Ragam Hias",
+                questionHtml: `
+                    <p class="text-sm sm:text-base font-medium text-slate-800">Tarik garis untuk mencocokkan urutan <strong>langkah-langkah menggambar ragam hias</strong> berikut:</p>
+                `,
+                pairs: [
+                    { left: "Langkah Pertama", right: "Menentukan pola dan ukuran bidang" },
+                    { left: "Langkah Kedua", right: "Membuat sketsa dan pengulangan motif" },
+                    { left: "Langkah Terakhir", right: "Mewarnai dan merapikan garis tepi" }
+                ],
+                explanation: `Urutan langkah membuat ragam hias: (1) Tentukan pola & ukuran, (2) Buat sketsa motif, (3) Warnai & rapikan.`
+            }
+        ];
+
+        // ==================== STATE APLIKASI ====================
+        const state = {
+            studentName: '',
+            studentClass: '',
+            subjectKey: '', // 'english' atau 'sbdp'
+            subjectTitle: '',
+            questions: [],
+            currentIndex: 0,
+            score: 0,
+            isAnswered: false,
+            userAnswers: [],
+            // State khusus Menjodohkan 2 Kolom
+            matching: {
+                selectedLeft: null,
+                connections: {}, // { leftIdx: rightIdx }
+                rightOrder: []   // Array indeks asli kanan yang sudah diacak
+            }
+        };
+
+        // ==================== ELEMEN DOM ====================
+        const screens = {
+            login: document.getElementById('screen-login'),
+            subject: document.getElementById('screen-subject'),
+            exam: document.getElementById('screen-exam'),
+            result: document.getElementById('screen-result')
+        };
+
+        const loginForm = document.getElementById('login-form');
+        const inputName = document.getElementById('student-name');
+        const inputClass = document.getElementById('student-class');
+        const loginError = document.getElementById('login-error');
+        const loginErrorText = document.getElementById('login-error-text');
+
+        // ==================== NAVIGASI LAYAR ====================
+        function switchScreen(target) {
+            Object.values(screens).forEach(el => el.classList.add('hidden'));
+            screens[target].classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function shuffleArray(array) {
+            const arr = [...array];
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+
+        function getInitials(name) {
+            const parts = name.trim().split(/\s+/);
+            if (parts.length === 1) return parts[0].substring(0, 2).toUpperCase();
+            return (parts[0][0] + parts[1][0]).toUpperCase();
+        }
+
+        // ==================== 1. LOGIN ====================
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const nameVal = inputName.value.trim();
+            const classVal = inputClass.value.trim().toUpperCase();
+
+            if (!nameVal || !classVal) {
+                loginError.classList.remove('hidden');
+                loginErrorText.textContent = !nameVal && !classVal
+                    ? 'Mohon isi Nama Lengkap dan Kelas terlebih dahulu.'
+                    : (!nameVal ? 'Nama Lengkap siswa tidak boleh kosong.' : 'Kelas siswa wajib diisi (contoh: 7A).');
+                (!nameVal ? inputName : inputClass).focus();
+                return;
+            }
+
+            loginError.classList.add('hidden');
+            state.studentName = nameVal;
+            state.studentClass = classVal;
+
+            document.getElementById('menu-student-name').textContent = state.studentName;
+            document.getElementById('menu-student-class').textContent = state.studentClass;
+            switchScreen('subject');
+        });
+
+        document.getElementById('btn-back-login').addEventListener('click', () => {
+            switchScreen('login');
+        });
+
+        // ==================== 2. PILIH MATERI ====================
+        function selectSubject(subjectKey) {
+            state.subjectKey = subjectKey;
+            state.subjectTitle = subjectKey === 'english' ? 'Bahasa Inggris' : 'Seni Budaya (SBdP)';
+            const sourceBank = subjectKey === 'english' ? ENGLISH_QUESTIONS : SBDP_QUESTIONS;
+
+            // Siapkan soal (40 soal urut kisi-kisi: PG 1-20, PGK 1-15, Menjodohkan 1-5)
+            state.questions = sourceBank.map(q => {
+                if (q.type === 'pg') {
+                    const mapped = q.options.map((text, idx) => ({ text, isCorrect: idx === q.correctIndex }));
+                    const shuffled = shuffleArray(mapped);
+                    return {
+                        ...q,
+                        options: shuffled.map(o => o.text),
+                        correctIndex: shuffled.findIndex(o => o.isCorrect)
+                    };
+                } else if (q.type === 'complex') {
+                    return {
+                        ...q,
+                        options: shuffleArray(q.options)
+                    };
+                } else {
+                    return { ...q };
+                }
+            });
+
+            state.currentIndex = 0;
+            state.score = 0;
+            state.isAnswered = false;
+            state.userAnswers = [];
+
+            document.getElementById('header-name').textContent = state.studentName;
+            document.getElementById('header-class').textContent = state.studentClass;
+            document.getElementById('header-avatar').textContent = getInitials(state.studentName);
+            document.getElementById('header-subject-label').textContent = state.subjectTitle;
+            document.getElementById('header-q-total').textContent = state.questions.length;
+            document.getElementById('header-score').textContent = '0';
+
+            switchScreen('exam');
+            renderCurrentQuestion();
+        }
+
+        // ==================== 3. RENDER SOAL ====================
+        function renderCurrentQuestion() {
+            state.isAnswered = false;
+            const currentQ = state.questions[state.currentIndex];
+            const totalQ = state.questions.length;
+
+            document.getElementById('header-q-num').textContent = state.currentIndex + 1;
+            document.getElementById('exam-progress-bar').style.width = `${((state.currentIndex + 1) / totalQ) * 100}%`;
+            document.getElementById('question-topic').textContent = currentQ.topic;
+
+            const typeBadge = document.getElementById('question-type-badge');
+            if (currentQ.type === 'pg') {
+                typeBadge.textContent = 'Pilihan Ganda (1 Jawaban)';
+                typeBadge.className = 'inline-flex items-center px-2.5 py-1 rounded-md text-xs font-bold bg-blue-50 text-blue-800 border border-blue-200';
+            } else if (currentQ.type === 'complex') {
+                typeBadge.textContent = `PG Kompleks (Maksimal ${currentQ.maxSelect} Jawaban)`;
+                typeBadge.className = 'inline-flex items-center px-2.5 py-1 rounded-md text-xs font-bold bg-amber-50 text-amber-800 border border-amber-200';
+            } else {
+                typeBadge.textContent = 'Menjodohkan (Tarik Garis 2 Kolom)';
+                typeBadge.className = 'inline-flex items-center px-2.5 py-1 rounded-md text-xs font-bold bg-indigo-50 text-indigo-800 border border-indigo-200';
+            }
+
+            document.getElementById('question-container').innerHTML = currentQ.questionHtml;
+            document.getElementById('feedback-box').classList.add('hidden');
+            document.getElementById('next-action-container').classList.add('hidden');
+            document.getElementById('submit-answer-container').classList.add('hidden');
+
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = '';
+
+            if (currentQ.type === 'pg') {
+                renderPG(currentQ, optionsContainer);
+            } else if (currentQ.type === 'complex') {
+                renderComplex(currentQ, optionsContainer);
+            } else if (currentQ.type === 'matching') {
+                renderMatching(currentQ, optionsContainer);
+            }
+        }
+
+        // --- Render Pilihan Ganda ---
+        function renderPG(q, container) {
+            const letters = ['A', 'B', 'C', 'D'];
+            q.options.forEach((optText, index) => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'option-btn w-full text-left p-3.5 sm:p-4 rounded-xl border-2 border-slate-200 bg-white hover:border-indigo-400 hover:bg-indigo-50/30 transition-all flex items-center justify-between gap-3 cursor-pointer group';
+                btn.innerHTML = `
+                    <div class="flex items-center gap-3.5 w-full">
+                        <span class="option-letter w-9 h-9 rounded-lg bg-slate-100 group-hover:bg-indigo-100 group-hover:text-indigo-800 text-slate-700 font-bold text-sm flex items-center justify-center shrink-0 transition">${letters[index]}</span>
+                        <span class="text-sm sm:text-base font-medium text-slate-800 flex-grow">${optText}</span>
+                        <span class="option-icon shrink-0 hidden"></span>
+                    </div>
+                `;
+                btn.addEventListener('click', () => handleSelectPG(index));
+                container.appendChild(btn);
+            });
+        }
+
+        // --- Render Pilihan Ganda Kompleks dengan Pembatasan Maksimal ---
+        function renderComplex(q, container) {
+            const maxAllowed = q.maxSelect || 2;
+            const statusBanner = document.createElement('div');
+            statusBanner.className = 'flex items-center justify-between bg-amber-50 border border-amber-200 text-amber-900 px-3.5 py-2.5 rounded-xl text-xs font-semibold mb-2';
+            statusBanner.innerHTML = `
+                <span>Pilih maksimal <strong>${maxAllowed} jawaban</strong> yang benar:</span>
+                <span id="pgk-counter" class="bg-amber-200/80 text-amber-950 px-2.5 py-0.5 rounded-full">0 / ${maxAllowed} dipilih</span>
+            `;
+            container.appendChild(statusBanner);
+
+            q.options.forEach((opt, idx) => {
+                const label = document.createElement('label');
+                label.className = 'complex-label w-full p-3.5 sm:p-4 rounded-xl border-2 border-slate-200 bg-white hover:border-indigo-400 transition flex items-center gap-3.5 cursor-pointer select-none';
+                label.innerHTML = `
+                    <input type="checkbox" data-index="${idx}" class="complex-cb w-5 h-5 rounded text-indigo-600 focus:ring-indigo-500 border-slate-300 cursor-pointer">
+                    <span class="text-sm sm:text-base font-medium text-slate-800 flex-grow">${opt.text}</span>
+                `;
+
+                const cb = label.querySelector('input');
+                cb.addEventListener('change', () => {
+                    const allCbs = Array.from(container.querySelectorAll('.complex-cb'));
+                    const checkedCount = allCbs.filter(c => c.checked).length;
+
+                    // Update counter
+                    document.getElementById('pgk-counter').textContent = `${checkedCount} / ${maxAllowed} dipilih`;
+
+                    // Enforce maksimal jawaban: jika sudah mencapai batas maksimal, nonaktifkan checkbox lainnya
+                    allCbs.forEach(itemCb => {
+                        const parentLbl = itemCb.closest('.complex-label');
+                        if (itemCb.checked) {
+                            parentLbl.classList.add('border-indigo-500', 'bg-indigo-50/40');
+                        } else {
+                            parentLbl.classList.remove('border-indigo-500', 'bg-indigo-50/40');
+                        }
+
+                        if (checkedCount >= maxAllowed && !itemCb.checked) {
+                            itemCb.disabled = true;
+                            parentLbl.classList.add('opacity-50', 'cursor-not-allowed');
+                        } else if (!state.isAnswered) {
+                            itemCb.disabled = false;
+                            parentLbl.classList.remove('opacity-50', 'cursor-not-allowed');
+                        }
+                    });
+                });
+
+                container.appendChild(label);
+            });
+
+            document.getElementById('submit-answer-container').classList.remove('hidden');
+            document.getElementById('btn-confirm').onclick = handleConfirmComplex;
+        }
+
+        // --- Render Menjodohkan 2 Kolom dengan Tarik Garis SVG Interaktif ---
+        function renderMatching(q, container) {
+            state.matching.selectedLeft = null;
+            state.matching.connections = {};
+            state.matching.rightOrder = shuffleArray(q.pairs.map((_, idx) => idx));
+
+            const toolbar = document.createElement('div');
+            toolbar.className = 'flex flex-wrap items-center justify-between gap-2 bg-indigo-50 border border-indigo-200 text-indigo-900 px-3.5 py-2.5 rounded-xl text-xs mb-3';
+            toolbar.innerHTML = `
+                <span><strong>Cara Menjodohkan:</strong> Klik item di <strong>Kolom Kiri</strong>, lalu klik pasangannya di <strong>Kolom Kanan</strong> untuk menarik garis.</span>
+                <button type="button" id="btn-reset-lines" class="px-2.5 py-1 bg-white border border-indigo-300 text-indigo-700 hover:bg-indigo-100 rounded-lg font-bold cursor-pointer">Reset Garis</button>
+            `;
+            container.appendChild(toolbar);
+
+            // Wrapper Relatif untuk 2 Kolom + Kanvas Garis SVG di tengah
+            const board = document.createElement('div');
+            board.id = 'matching-board';
+            board.className = 'relative grid grid-cols-2 gap-8 sm:gap-16 items-stretch py-2';
+
+            // Layer SVG untuk menggambar garis penghubung
+            const svgLayer = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+            svgLayer.id = 'matching-svg';
+            svgLayer.setAttribute('class', 'absolute inset-0 w-full h-full pointer-events-none z-10');
+            board.appendChild(svgLayer);
+
+            // Kolom Kiri (Pernyataan)
+            const leftCol = document.createElement('div');
+            leftCol.className = 'space-y-3 z-20 flex flex-col justify-between';
+            q.pairs.forEach((pair, leftIdx) => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.id = `match-left-${leftIdx}`;
+                btn.dataset.leftIdx = leftIdx;
+                btn.className = 'match-left-btn w-full text-left p-3 sm:p-3.5 rounded-xl border-2 border-slate-200 bg-white hover:border-indigo-400 transition text-xs sm:text-sm font-semibold text-slate-800 flex items-center justify-between gap-2 cursor-pointer shadow-2xs';
+                btn.innerHTML = `
+                    <span>${leftIdx + 1}. ${pair.left}</span>
+                    <span class="w-3 h-3 rounded-full bg-indigo-500 shrink-0"></span>
+                `;
+                btn.addEventListener('click', () => handleLeftNodeClick(leftIdx));
+                leftCol.appendChild(btn);
+            });
+
+            // Kolom Kanan (Pasangan yang Diacak)
+            const rightCol = document.createElement('div');
+            rightCol.className = 'space-y-3 z-20 flex flex-col justify-between';
+            state.matching.rightOrder.forEach((origRightIdx, displayPos) => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.id = `match-right-${origRightIdx}`;
+                btn.dataset.rightIdx = origRightIdx;
+                btn.className = 'match-right-btn w-full text-left p-3 sm:p-3.5 rounded-xl border-2 border-slate-200 bg-white hover:border-indigo-400 transition text-xs sm:text-sm font-medium text-slate-800 flex items-center gap-2 cursor-pointer shadow-2xs';
+                btn.innerHTML = `
+                    <span class="w-3 h-3 rounded-full bg-emerald-500 shrink-0"></span>
+                    <span>${String.fromCharCode(65 + displayPos)}. ${q.pairs[origRightIdx].right}</span>
+                `;
+                btn.addEventListener('click', () => handleRightNodeClick(origRightIdx));
+                rightCol.appendChild(btn);
+            });
+
+            board.appendChild(leftCol);
+            board.appendChild(rightCol);
+            container.appendChild(board);
+
+            document.getElementById('btn-reset-lines').addEventListener('click', () => {
+                if (state.isAnswered) return;
+                state.matching.selectedLeft = null;
+                state.matching.connections = {};
+                updateMatchingVisuals();
+            });
+
+            // Gambar ulang garis jika ukuran layar berubah
+            window.addEventListener('resize', drawMatchingLines);
+
+            document.getElementById('submit-answer-container').classList.remove('hidden');
+            document.getElementById('btn-confirm').onclick = handleConfirmMatching;
+        }
+
+        function handleLeftNodeClick(leftIdx) {
+            if (state.isAnswered) return;
+            state.matching.selectedLeft = (state.matching.selectedLeft === leftIdx) ? null : leftIdx;
+            updateMatchingVisuals();
+        }
+
+        function handleRightNodeClick(rightIdx) {
+            if (state.isAnswered) return;
+            if (state.matching.selectedLeft === null) return;
+
+            // Hapus koneksi lama jika titik kanan ini sudah dipakai oleh titik kiri lain
+            Object.keys(state.matching.connections).forEach(k => {
+                if (state.matching.connections[k] === rightIdx) {
+                    delete state.matching.connections[k];
+                }
+            });
+
+            // Sambungkan titik kiri yang aktif ke titik kanan yang diklik
+            state.matching.connections[state.matching.selectedLeft] = rightIdx;
+            state.matching.selectedLeft = null;
+            updateMatchingVisuals();
+        }
+
+        function updateMatchingVisuals() {
+            const colors = ['#4f46e5', '#059669', '#d97706']; // Indigo, Emerald, Amber
+
+            document.querySelectorAll('.match-left-btn').forEach(btn => {
+                const lIdx = parseInt(btn.dataset.leftIdx, 10);
+                btn.classList.remove('border-indigo-600', 'bg-indigo-50', 'ring-2', 'ring-indigo-400', 'border-emerald-500');
+                if (state.matching.selectedLeft === lIdx) {
+                    btn.classList.add('border-indigo-600', 'bg-indigo-50', 'ring-2', 'ring-indigo-400');
+                } else if (state.matching.connections[lIdx] !== undefined) {
+                    btn.classList.add('border-indigo-500', 'bg-indigo-50/40');
+                }
+            });
+
+            document.querySelectorAll('.match-right-btn').forEach(btn => {
+                const rIdx = parseInt(btn.dataset.rightIdx, 10);
+                const isConnected = Object.values(state.matching.connections).includes(rIdx);
+                btn.classList.remove('border-indigo-500', 'bg-indigo-50/40');
+                if (isConnected) {
+                    btn.classList.add('border-indigo-500', 'bg-indigo-50/40');
+                }
+            });
+
+            drawMatchingLines();
+        }
+
+        function drawMatchingLines(evaluationResults = null) {
+            const board = document.getElementById('matching-board');
+            const svg = document.getElementById('matching-svg');
+            if (!board || !svg) return;
+
+            svg.innerHTML = '';
+            const boardRect = board.getBoundingClientRect();
+            const lineColors = ['#4f46e5', '#0284c7', '#7c3aed'];
+
+            Object.entries(state.matching.connections).forEach(([leftIdxStr, rightIdx]) => {
+                const leftIdx = parseInt(leftIdxStr, 10);
+                const leftEl = document.getElementById(`match-left-${leftIdx}`);
+                const rightEl = document.getElementById(`match-right-${rightIdx}`);
+                if (!leftEl || !rightEl) return;
+
+                const lRect = leftEl.getBoundingClientRect();
+                const rRect = rightEl.getBoundingClientRect();
+
+                const x1 = lRect.right - boardRect.left;
+                const y1 = lRect.top + (lRect.height / 2) - boardRect.top;
+                const x2 = rRect.left - boardRect.left;
+                const y2 = rRect.top + (rRect.height / 2) - boardRect.top;
+
+                let strokeColor = lineColors[leftIdx % lineColors.length];
+                if (evaluationResults) {
+                    strokeColor = evaluationResults[leftIdx] ? '#10b981' : '#e11d48';
+                }
+
+                // Garis kurva Bezier halus antar kolom
+                const cx1 = x1 + (x2 - x1) * 0.45;
+                const cx2 = x2 - (x2 - x1) * 0.45;
+                const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                path.setAttribute('d', `M ${x1} ${y1} C ${cx1} ${y1}, ${cx2} ${y2}, ${x2} ${y2}`);
+                path.setAttribute('stroke', strokeColor);
+                path.setAttribute('stroke-width', '3.5');
+                path.setAttribute('stroke-linecap', 'round');
+                path.setAttribute('fill', 'none');
+
+                svg.appendChild(path);
+            });
+        }
+
+        // ==================== EVALUASI JAWABAN ====================
+        function handleSelectPG(selectedIndex) {
+            if (state.isAnswered) return;
+            state.isAnswered = true;
+
+            const currentQ = state.questions[state.currentIndex];
+            const isCorrect = selectedIndex === currentQ.correctIndex;
+            const pointsEarned = isCorrect ? 2.5 : 0;
+
+            if (isCorrect) {
+                state.score += 2.5;
+                updateScoreUI();
+            }
+
+            state.userAnswers.push({
+                question: currentQ,
+                userChoiceText: currentQ.options[selectedIndex],
+                correctChoiceText: currentQ.options[currentQ.correctIndex],
+                isCorrect
+            });
+
+            document.querySelectorAll('.option-btn').forEach((btn, idx) => {
+                btn.disabled = true;
+                btn.classList.remove('hover:border-indigo-400', 'hover:bg-indigo-50/30', 'cursor-pointer');
+                const letterBadge = btn.querySelector('.option-letter');
+                const iconSlot = btn.querySelector('.option-icon');
+
+                if (idx === currentQ.correctIndex) {
+                    btn.classList.add('border-emerald-500', 'bg-emerald-50/90', 'ring-1', 'ring-emerald-500');
+                    letterBadge.classList.add('bg-emerald-600', 'text-white');
+                    iconSlot.classList.remove('hidden');
+                    iconSlot.innerHTML = `<span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-600 text-white">✓</span>`;
+                } else if (idx === selectedIndex && !isCorrect) {
+                    btn.classList.add('border-rose-500', 'bg-rose-50/90');
+                    letterBadge.classList.add('bg-rose-600', 'text-white');
+                    iconSlot.classList.remove('hidden');
+                    iconSlot.innerHTML = `<span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-rose-600 text-white">✕</span>`;
+                } else {
+                    btn.classList.add('opacity-55');
+                }
+            });
+
+            showFeedbackBox(isCorrect, pointsEarned, currentQ.explanation);
+            showNextButton();
+        }
+
+        function handleConfirmComplex() {
+            if (state.isAnswered) return;
+            const currentQ = state.questions[state.currentIndex];
+            const checkboxes = Array.from(document.querySelectorAll('.complex-cb'));
+            const selectedIndices = checkboxes.map((cb, idx) => cb.checked ? idx : -1).filter(idx => idx !== -1);
+
+            if (selectedIndices.length === 0) {
+                showInlineWarning('Silakan centang minimal 1 jawaban (maksimal ' + currentQ.maxSelect + ' jawaban) sebelum memeriksa!');
+                return;
+            }
+
+            state.isAnswered = true;
+            const correctIndices = currentQ.options.map((opt, idx) => opt.isCorrect ? idx : -1).filter(idx => idx !== -1);
+            const isCorrect = selectedIndices.length === correctIndices.length &&
+                selectedIndices.every(i => correctIndices.includes(i));
+
+            const pointsEarned = isCorrect ? 2.5 : 0;
+            if (isCorrect) {
+                state.score += 2.5;
+                updateScoreUI();
+            }
+
+            state.userAnswers.push({
+                question: currentQ,
+                userChoiceText: selectedIndices.map(i => currentQ.options[i].text).join(' | '),
+                correctChoiceText: correctIndices.map(i => currentQ.options[i].text).join(' | '),
+                isCorrect
+            });
+
+            document.querySelectorAll('.complex-label').forEach((lbl, idx) => {
+                const cb = lbl.querySelector('input');
+                cb.disabled = true;
+                lbl.classList.remove('opacity-50', 'cursor-not-allowed', 'border-indigo-500', 'bg-indigo-50/40');
+                if (correctIndices.includes(idx)) {
+                    lbl.classList.add('border-emerald-500', 'bg-emerald-50/90', 'ring-1', 'ring-emerald-500');
+                } else if (cb.checked) {
+                    lbl.classList.add('border-rose-500', 'bg-rose-50/90');
+                } else {
+                    lbl.classList.add('opacity-55');
+                }
+            });
+
+            document.getElementById('submit-answer-container').classList.add('hidden');
+            showFeedbackBox(isCorrect, pointsEarned, currentQ.explanation);
+            showNextButton();
+        }
+
+        function handleConfirmMatching() {
+            if (state.isAnswered) return;
+            const currentQ = state.questions[state.currentIndex];
+            const totalPairs = currentQ.pairs.length;
+
+            if (Object.keys(state.matching.connections).length < totalPairs) {
+                showInlineWarning(`Hubungkan semua (${totalPairs} pasang) pernyataan di Kolom Kiri ke Kolom Kanan terlebih dahulu!`);
+                return;
+            }
+
+            state.isAnswered = true;
+            const evalResults = {};
+            let allCorrect = true;
+
+            for (let i = 0; i < totalPairs; i++) {
+                const isPairCorrect = state.matching.connections[i] === i;
+                evalResults[i] = isPairCorrect;
+                if (!isPairCorrect) allCorrect = false;
+            }
+
+            const pointsEarned = allCorrect ? 2.5 : 0;
+            if (allCorrect) {
+                state.score += 2.5;
+                updateScoreUI();
+            }
+
+            drawMatchingLines(evalResults);
+
+            const userSummary = currentQ.pairs.map((p, i) => `${p.left} → ${currentQ.pairs[state.matching.connections[i]].right}`).join('; ');
+            const correctSummary = currentQ.pairs.map(p => `${p.left} → ${p.right}`).join('; ');
+
+            state.userAnswers.push({
+                question: currentQ,
+                userChoiceText: userSummary,
+                correctChoiceText: correctSummary,
+                isCorrect: allCorrect
+            });
+
+            document.getElementById('btn-reset-lines').disabled = true;
+            document.getElementById('submit-answer-container').classList.add('hidden');
+            showFeedbackBox(allCorrect, pointsEarned, currentQ.explanation);
+            showNextButton();
+        }
+
+        function showInlineWarning(msg) {
+            const box = document.getElementById('feedback-box');
+            box.className = 'mt-6 rounded-2xl border p-4 bg-amber-50 border-amber-300 text-amber-900 animate-pop';
+            box.innerHTML = `<p class="font-bold text-sm">⚠️ ${msg}</p>`;
+            box.classList.remove('hidden');
+        }
+
+        function updateScoreUI() {
+            const scoreEl = document.getElementById('header-score');
+            scoreEl.textContent = Number.isInteger(state.score) ? state.score : state.score.toFixed(1);
+
+            const popupContainer = document.getElementById('score-popup-container');
+            const badge = document.createElement('span');
+            badge.className = 'inline-block bg-emerald-600 text-white text-xs font-extrabold px-2.5 py-1 rounded-full shadow-md animate-score-badge whitespace-nowrap';
+            badge.textContent = '+2.5 Poin!';
+            popupContainer.innerHTML = '';
+            popupContainer.appendChild(badge);
+        }
+
+        function showFeedbackBox(isCorrect, points, explanation) {
+            const box = document.getElementById('feedback-box');
+            box.className = 'mt-6 rounded-2xl border p-4 sm:p-5 animate-pop';
+            box.innerHTML = `
+                <div class="flex items-center justify-between gap-2 mb-2">
+                    <div class="flex items-center gap-2 font-bold text-sm sm:text-base">
+                        <span class="w-6 h-6 rounded-full ${isCorrect ? 'bg-emerald-600' : 'bg-rose-600'} text-white flex items-center justify-center shrink-0 text-xs">
+                            ${isCorrect ? '✓' : '✕'}
+                        </span>
+                        <span class="${isCorrect ? 'text-emerald-800' : 'text-rose-800'}">
+                            ${isCorrect ? 'Jawaban Benar!' : 'Kurang Tepat!'}
+                        </span>
+                    </div>
+                    <span class="text-xs font-extrabold px-2.5 py-1 rounded-lg ${isCorrect ? 'bg-emerald-600 text-white' : 'bg-rose-200 text-rose-800'}">
+                        +${points} Poin
+                    </span>
+                </div>
+                <div class="border-t border-current/10 pt-2.5 mt-2">
+                    <p class="text-xs font-bold uppercase tracking-wider opacity-75 mb-1">Penjelasan Ringkas:</p>
+                    <div class="text-sm leading-relaxed">${explanation}</div>
+                </div>
+            `;
+
+            if (isCorrect) {
+                box.classList.add('bg-emerald-50/90', 'border-emerald-300', 'text-emerald-950');
+            } else {
+                box.classList.add('bg-rose-50/90', 'border-rose-300', 'text-rose-950');
+            }
+        }
+
+        function showNextButton() {
+            const nextContainer = document.getElementById('next-action-container');
+            document.getElementById('btn-next-text').textContent =
+                state.currentIndex === state.questions.length - 1 ? 'Lihat Hasil Akhir' : 'Soal Selanjutnya';
+            nextContainer.classList.remove('hidden');
+        }
+
+        document.getElementById('btn-next').addEventListener('click', () => {
+            if (state.currentIndex < state.questions.length - 1) {
+                state.currentIndex++;
+                renderCurrentQuestion();
+            } else {
+                showFinalResults();
+            }
+        });
+
+        // ==================== MODAL KELUAR UJIAN ====================
+        function confirmQuitExam() {
+            document.getElementById('quit-modal').classList.remove('hidden');
+        }
+        function closeQuitModal() {
+            document.getElementById('quit-modal').classList.add('hidden');
+        }
+        function executeQuitToMenu() {
+            closeQuitModal();
+            switchScreen('subject');
+        }
+
+        // ==================== 4. HALAMAN HASIL AKHIR ====================
+        function showFinalResults() {
+            const totalQ = state.questions.length;
+            const correctCount = state.userAnswers.filter(a => a.isCorrect).length;
+            const wrongCount = totalQ - correctCount;
+            const finalScore = Math.round(state.score);
+
+            let title = '', motivation = '';
+            if (finalScore >= 90) {
+                title = 'Sangat Memuaskan (A)';
+                motivation = `Luar biasa! Kamu menguasai materi ${state.subjectTitle} Kelas 7 (2026/2027) dengan sangat baik.`;
+            } else if (finalScore >= 75) {
+                title = 'Baik (B)';
+                motivation = `Bagus sekali! Sebagian besar indikator kisi-kisi ${state.subjectTitle} sudah kamu pahami.`;
+            } else if (finalScore >= 60) {
+                title = 'Cukup Baik (C)';
+                motivation = `Cukup baik! Pelajari kembali pembahasan soal yang keliru di bawah ini untuk meningkatkan nilaimu.`;
+            } else {
+                title = 'Perlu Berlatih Lagi';
+                motivation = `Jangan menyerah! Baca ringkasan penjelasan di bawah dan coba ulangi latihan ujiannya.`;
+            }
+
+            document.getElementById('result-subject-name').textContent = state.subjectTitle;
+            document.getElementById('result-predicate-title').textContent = title;
+            document.getElementById('result-student-name').textContent = state.studentName;
+            document.getElementById('result-student-class').textContent = state.studentClass;
+            document.getElementById('result-score').textContent = finalScore;
+            document.getElementById('result-correct').textContent = correctCount;
+            document.getElementById('result-wrong').textContent = wrongCount;
+            document.getElementById('result-motivation').textContent = motivation;
+
+            const reviewList = document.getElementById('review-list');
+            reviewList.innerHTML = '';
+
+            state.userAnswers.forEach((item, idx) => {
+                const q = item.question;
+                const card = document.createElement('div');
+                card.className = `rounded-xl border p-4 sm:p-5 ${item.isCorrect ? 'border-emerald-200 bg-emerald-50/30' : 'border-rose-200 bg-rose-50/30'}`;
+
+                card.innerHTML = `
+                    <div class="flex items-center justify-between gap-2 mb-2">
+                        <span class="text-xs font-bold text-slate-500">Soal No. ${idx + 1} • ${q.topic}</span>
+                        <span class="text-xs font-bold px-2.5 py-0.5 rounded-full ${item.isCorrect ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'}">
+                            ${item.isCorrect ? 'Benar (+2.5)' : 'Kurang Tepat (+0)'}
+                        </span>
+                    </div>
+                    <div class="text-sm text-slate-800 mb-3">${q.questionHtml}</div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm mb-3">
+                        <div class="p-2.5 rounded-lg ${item.isCorrect ? 'bg-emerald-100/70 text-emerald-900' : 'bg-rose-100/70 text-rose-900'}">
+                            <span class="block text-[11px] uppercase opacity-75 font-semibold">Jawaban Kamu:</span>
+                            <span class="font-semibold">${item.userChoiceText}</span>
+                        </div>
+                        <div class="p-2.5 rounded-lg bg-emerald-100/70 text-emerald-900">
+                            <span class="block text-[11px] uppercase opacity-75 font-semibold">Kunci Jawaban:</span>
+                            <span class="font-semibold">${item.correctChoiceText}</span>
+                        </div>
+                    </div>
+                    <div class="bg-white/90 border border-slate-200/80 rounded-lg p-3 text-xs sm:text-sm text-slate-700">
+                        <span class="font-bold text-slate-800">Penjelasan: </span>${q.explanation}
+                    </div>
+                `;
+                reviewList.appendChild(card);
+            });
+
+            switchScreen('result');
+        }
+
+        document.getElementById('btn-retry').addEventListener('click', () => {
+            selectSubject(state.subjectKey);
+        });
+
+        document.getElementById('btn-change-subject').addEventListener('click', () => {
+            switchScreen('subject');
+        });
+
+        document.getElementById('btn-logout').addEventListener('click', () => {
+            inputName.value = '';
+            inputClass.value = '';
+            loginError.classList.add('hidden');
+            switchScreen('login');
+        });
+    </script>
+</body>
+</html>
